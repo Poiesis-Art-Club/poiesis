@@ -1,5 +1,16 @@
 # Mise à jour du portail Poiesis
 
+## Refonte de l’espace membre
+
+- [x] Auditer la composition actuelle de la connexion par rapport au portail de référence.
+- [x] Recomposer l’écran membre avec les arcades, l’emblème, les sceaux, la chouette et le parchemin fournis.
+- [x] Renforcer les retours de saisie, les états locaux et la lisibilité responsive du formulaire.
+- [x] Vérifier visuellement la connexion sur desktop et mobile.
+
+### Constats de composition
+
+La connexion actuelle utilise les bons matériaux mais les réduit à un seul feuillet central, trop étroit et statique. La recomposition doit donner un rôle structurel aux arcades, créer une double-page de membre avec hiérarchie nette, mettre l’emblème et la chouette en scène, puis distinguer clairement l’accès membre du lien vers l’adhésion.
+
 ## Reprise de direction demandée
 
 - [x] Comparer le portail, les pages et les textes actuels avec la référence médiévale du club.
