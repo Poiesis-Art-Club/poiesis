@@ -15,8 +15,13 @@
 - [x] Contrôler les repères visuels du portail membre et remplacer tout monogramme générique résiduel par le logo officiel.
 
 Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bouton « Continue with Google » utilise l’emblème officiel Poiesis, en cohérence avec le branding Google OAuth enregistré.
-- [ ] Créer un dépôt GitHub privé avec la version validée, prêt à être importé dans Netlify.
-- [ ] Autoriser la création de dépôts privés pour le compte GitHub connecté, puis reprendre l’export Poiesis.
+- [x] Contrôler que la version publique ne contient aucun secret, identifiant privé ou configuration de développement exposée.
+- [ ] Créer un dépôt GitHub public avec la version validée, prêt pour GitHub Pages et l’import Netlify.
+- [ ] Autoriser la création de dépôts publics pour le compte GitHub connecté, puis reprendre l’export Poiesis.
+- [x] Préparer les configurations de build et de redirection nécessaires à GitHub Pages et Netlify.
+- [x] Adapter le build public afin que GitHub Pages puisse servir l’interface sans exposer ni requérir les secrets d’authentification.
+
+Le build statique a été compilé avec le préfixe `/poiesis-medieval/`, puis servi localement : la route profonde `/poiesis-medieval/login` charge le portail membre, ses assets distants et ses liens internes avec le bon préfixe.
 
 ## Limite e-mail et connecteur 21st
 

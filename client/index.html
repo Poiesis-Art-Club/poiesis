@@ -16,6 +16,15 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var redirectedPath = sessionStorage.getItem("poiesis:pages-redirect");
+        if (redirectedPath) {
+          sessionStorage.removeItem("poiesis:pages-redirect");
+          history.replaceState(null, "", redirectedPath);
+        }
+      }());
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script
       defer

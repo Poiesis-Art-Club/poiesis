@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Poiesis</title>
+    <script>
+      (function (location) {
+        var repositoryDepth = 1;
+        var base = location.pathname.split('/').slice(0, 1 + repositoryDepth).join('/') + '/';
+        sessionStorage.setItem('poiesis:pages-redirect', location.pathname + location.search + location.hash);
+        location.replace(location.protocol + '//' + location.host + base);
+      }(window.location));
+    </script>
+  </head>
+  <body></body>
+</html>

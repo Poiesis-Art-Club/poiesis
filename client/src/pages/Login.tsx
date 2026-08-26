@@ -14,7 +14,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import { memberGoogleAuthOptions } from "@/lib/memberAuth";
+import { memberEmailConfirmationRedirect, memberGoogleAuthOptions } from "@/lib/memberAuth";
 import { ASSETS } from "@/components/PoiesisUI";
 
 type Mode = "sign-in" | "sign-up";
@@ -29,6 +29,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [signedIn, setSignedIn] = useState(false);
   const [newPassword, setNewPassword] = useState("");
+  const appBase = import.meta.env.BASE_URL;
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSignedIn(Boolean(data.session)));
@@ -57,7 +58,7 @@ export default function Login() {
       const { data, error: authError } = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: `${window.location.origin}/email-confirmed` },
+        options: { emailRedirectTo: memberEmailConfirmationRedirect(window.location.origin, appBase) },
       });
       if (authError) setError(authError.message);
       else if (data.session) setMessage("Your member session is open. Welcome to Poiesis.");
@@ -72,7 +73,7 @@ export default function Login() {
     setBusy(true);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: memberGoogleAuthOptions(window.location.origin),
+      options: memberGoogleAuthOptions(window.location.origin, appBase),
     });
     if (authError) setError(authError.message);
     else setMessage("Opening Google’s secure sign-in…");

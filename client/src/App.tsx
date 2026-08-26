@@ -15,12 +15,13 @@ import NightGallery from "@/pages/NightGallery";
 import NotFound from "@/pages/NotFound";
 import { Privacy, Terms } from "@/pages/Policies";
 import SubmitEcho from "@/pages/SubmitEcho";
-import { Route, Switch } from "wouter";
+import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 function Router() {
   // make sure to consider if you need authentication for certain routes
-  return <Switch>
+  const base = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
+  return <WouterRouter base={base}><Switch>
     <Route path="/" component={Gate} />
     <Route path="/login" component={Login} />
     <Route path="/home" component={Home} />
@@ -36,7 +37,7 @@ function Router() {
     <Route path="/night-gallery" component={NightGallery} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
-  </Switch>;
+  </Switch></WouterRouter>;
 }
 
 export default function App() {

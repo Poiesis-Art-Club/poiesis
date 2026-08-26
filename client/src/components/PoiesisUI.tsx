@@ -7,21 +7,24 @@ import { Menu, Moon, Sparkles, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 
+const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "";
+const asset = (path: string) => `${assetOrigin}${path}`;
+
 export const ASSETS = {
-  hero: "/manus-storage/poiesis-hero-manuscript_8948e97e.jpg",
-  seal: "/manus-storage/poiesis-seal-sculpture_5d2e74bf.png",
-  gallery: "/manus-storage/poiesis-gallery-vision_137feff4.jpg",
-  workshop: "/manus-storage/poiesis-workshop-stilllife_56216ad7.jpg",
-  mark: "/manus-storage/poiesis-mark_4fee9962.png",
-  portal: "/manus-storage/ambleme-alpha_75fb67b3.png",
-  archways: "/manus-storage/Archways-alpha_c73509cb.png",
-  parchment: "/manus-storage/Background_403b37be.png",
-  birdvine: "/manus-storage/birdvine-alpha_24daebf6.png",
-  hintSeal: "/manus-storage/hintseal-alpha_f05d7ab0.png",
-  numberPad: "/manus-storage/numberspad-alpha_379c0c80.png",
-  owl: "/manus-storage/owl-alpha_86ebde45.png",
-  skipSeal: "/manus-storage/skipseal-alpha_07bafdde.png",
-  officialLogo: "/manus-storage/poiesis-official-logo_41249a24.png",
+  hero: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
+  seal: asset("/manus-storage/poiesis-seal-sculpture_5d2e74bf.png"),
+  gallery: asset("/manus-storage/poiesis-gallery-vision_137feff4.jpg"),
+  workshop: asset("/manus-storage/poiesis-workshop-stilllife_56216ad7.jpg"),
+  mark: asset("/manus-storage/poiesis-mark_4fee9962.png"),
+  portal: asset("/manus-storage/ambleme-alpha_75fb67b3.png"),
+  archways: asset("/manus-storage/Archways-alpha_c73509cb.png"),
+  parchment: asset("/manus-storage/Background_403b37be.png"),
+  birdvine: asset("/manus-storage/birdvine-alpha_24daebf6.png"),
+  hintSeal: asset("/manus-storage/hintseal-alpha_f05d7ab0.png"),
+  numberPad: asset("/manus-storage/numberspad-alpha_379c0c80.png"),
+  owl: asset("/manus-storage/owl-alpha_86ebde45.png"),
+  skipSeal: asset("/manus-storage/skipseal-alpha_07bafdde.png"),
+  officialLogo: asset("/manus-storage/poiesis-official-logo_41249a24.png"),
 };
 
 export const INSTAGRAM_URL = "https://www.instagram.com/poiesis_art_club/?hl=fr";
