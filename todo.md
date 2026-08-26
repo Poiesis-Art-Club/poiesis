@@ -18,6 +18,7 @@ Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bout
 - [x] Contrôler que la version publique ne contient aucun secret, identifiant privé ou configuration de développement exposée.
 - [ ] Créer un dépôt GitHub public avec la version validée, prêt pour GitHub Pages et l’import Netlify.
 - [ ] Autoriser la création de dépôts publics pour le compte GitHub connecté, puis reprendre l’export Poiesis.
+- [ ] Reconnecter GitHub avec l’autorisation de créer des dépôts publics et d’écrire leur contenu, ou fournir l’URL d’un dépôt public vide.
 - [x] Préparer les configurations de build et de redirection nécessaires à GitHub Pages et Netlify.
 - [x] Adapter le build public afin que GitHub Pages puisse servir l’interface sans exposer ni requérir les secrets d’authentification.
 
