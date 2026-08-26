@@ -22,19 +22,23 @@ Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bout
 - [x] Préparer les configurations de build et de redirection nécessaires à GitHub Pages et Netlify.
 - [x] Adapter le build public afin que GitHub Pages puisse servir l’interface sans exposer ni requérir les secrets d’authentification.
 - [x] Pousser la correction du workflow GitHub Pages vers le dépôt public et relancer son build.
-- [ ] Activer GitHub Pages avec « GitHub Actions » comme source dans les réglages du dépôt, puis confirmer le déploiement.
-- [ ] Vérifier dans GitHub Actions qu’un nouveau run « Deploy Poiesis to GitHub Pages » aboutit avec succès.
+- [x] Activer GitHub Pages avec « GitHub Actions » comme source dans les réglages du dépôt, puis confirmer le déploiement.
+- [x] Vérifier dans GitHub Actions qu’un nouveau run « Deploy Poiesis to GitHub Pages » aboutit avec succès.
 - [x] Contrôler l’état et les journaux du dernier déploiement GitHub Pages signalé comme échoué.
-- [ ] Diagnostiquer le 404 persistant de GitHub Pages après sélection de GitHub Actions comme source.
-- [ ] Corriger le rendu vide constaté sur GitHub Pages en configurant les variables publiques de build et une origine durable d’assets.
+- [x] Diagnostiquer le 404 persistant de GitHub Pages après sélection de GitHub Actions comme source.
+- [x] Corriger le rendu vide constaté sur GitHub Pages en garantissant une origine durable d’assets et un démarrage public sans crash.
 - [ ] Renseigner manuellement les variables GitHub Actions publiques, car l’intégration GitHub ne dispose pas du droit de les administrer.
-- [ ] Afficher un état de configuration clair au lieu d’un écran vide si Supabase n’est pas encore renseigné dans un build statique.
+- [x] Afficher un état de configuration clair au lieu d’un écran vide si Supabase n’est pas encore renseigné dans un build statique.
+- [x] Créer et déployer le site Netlify public principal Poiesis.
+- [x] Créer et déployer le site Netlify public d’assets durables compatible avec les références du site.
 
 Le 26 août 2026, GitHub Actions a fini par créer le déploiement Pages avec succès. La première vérification de `https://godofcode1.github.io/poiesis-medieval/` a toutefois affiché uniquement le fond sombre ; le build publié ne dispose pas encore des variables publiques nécessaires à Supabase et aux assets visuels.
 
 Un site Netlify public d’assets `poiesis-assets` a été créé et déployé le 26 août 2026. Son déploiement sert de future origine durable pour les images du site, sous réserve d’une vérification HTTP et de son intégration dans les variables de build.
 
 La vérification visuelle a confirmé que l’emblème gothique central et les autres références `/manus-storage` sont servis depuis `https://poiesis-assets.netlify.app`. L’application utilise désormais cette origine par défaut lors d’un build statique.
+
+Après le run GitHub Pages réussi à 23:20 UTC, le navigateur a encore reçu le bundle antérieur, identifiable par un ancien nom de fichier JavaScript et le script d’analytique supprimé. Une nouvelle vérification doit attendre la propagation CDN avant d’interpréter ce résultat comme un nouvel échec de rendu.
 
 Le build statique a été compilé avec le préfixe `/poiesis-medieval/`, puis servi localement : la route profonde `/poiesis-medieval/login` charge le portail membre, ses assets distants et ses liens internes avec le bon préfixe.
 
