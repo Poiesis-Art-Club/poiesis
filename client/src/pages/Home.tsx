@@ -1,6 +1,6 @@
 /** Le Cloître des pratiques — accueil concret pour une maison de tous les arts, cultures et idées. */
 import { ArrowUpRight, Brush, Drama, Globe2, Music2, Palette, ScanLine, Shapes, UsersRound } from "lucide-react";
-import { ASSETS, InkButton, SiteShell } from "@/components/PoiesisUI";
+import { ASSETS, InkButton, INSTAGRAM_URL, SiteShell } from "@/components/PoiesisUI";
 
 const houses = [
   { icon: Shapes, numeral: "I", title: "Image & Matter", text: "Sculpture, drawing, painting, installation, photography and design." },
@@ -20,9 +20,9 @@ export default function Home() {
         <p className="folio-label">Poiesis · House of art, culture & inquiry</p>
         <h1>A meeting place<br />for <em>every</em> art.</h1>
         <p>Poiesis is a member-led club for people who make, study, perform, collect, question and discuss. Bring a sculpture, a film, a sound, a photograph, a text, a question — or simply attention.</p>
-        <div className="great-hall__actions"><InkButton href="/about">Explore the houses</InkButton><InkButton href="/events" tone="ink">See the programme</InkButton></div>
+        <div className="great-hall__actions"><InkButton href="/about">Explore the houses</InkButton><InkButton href="/echoes" tone="ink">Enter Echoes</InkButton><InkButton href={INSTAGRAM_URL} tone="ghost">Instagram</InkButton></div>
       </div>
-      <div className="hall-seal"><img src={ASSETS.portal} alt="Poiesis emblem" /><span>Open to all practices</span></div>
+      <div className="hall-seal"><img src={ASSETS.officialLogo} alt="Poiesis Art Club logo" /><span>Open to all practices</span></div>
     </section>
 
     <section className="houses-ledger">
@@ -31,7 +31,7 @@ export default function Home() {
     </section>
 
     <section className="assembly-banner" style={{ backgroundImage: `url(${ASSETS.gallery})` }}>
-      <div className="assembly-banner__shade" /><div className="assembly-banner__copy"><UsersRound size={23} /><p className="folio-label">The common room</p><h2>Make, show,<br />listen, debate.</h2><p>Open studios, screenings, listening rooms, critique circles, cultural conversations and philosophy salons share the same hall.</p><InkButton href="/events" tone="ghost">View the programme</InkButton></div>
+      <div className="assembly-banner__shade" /><div className="assembly-banner__copy"><UsersRound size={23} /><p className="folio-label">The common room</p><h2>Make, show,<br />listen, debate.</h2><p>Open studios, screenings, listening rooms, critique circles, cultural conversations and philosophy salons share the same hall. Dates and invitations are shared on Instagram.</p><InkButton href={INSTAGRAM_URL} tone="ghost">See Instagram updates</InkButton></div>
     </section>
 
     <section className="home-studio-note"><div><Brush size={20} /><p className="folio-label">Need a starting point?</p><h2>The studios welcome work in any medium.</h2></div><p>Use a prompt, share a work in progress, or start a cross-disciplinary conversation.</p><InkButton href="/create" tone="ink">Enter the studios</InkButton></section>

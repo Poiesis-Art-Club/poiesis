@@ -42,7 +42,7 @@ export default function Gate() {
         <button className="portal-enter" onClick={checkRunes}>Open the guildhall <ArrowRight size={15} /></button>
       </section>
       <div className="portal-actions">
-        <button className="portal-seal-action" onClick={() => setNotice("The word is POIESIS — seven letters, one threshold.")}><img src={ASSETS.hintSeal} alt="" /><span>Hint</span></button>
+        <button className="portal-seal-action portal-seal-action--hint" onClick={() => setNotice("The word is POIESIS — seven letters, one threshold.")}><img src={ASSETS.hintSeal} alt="" /><span>Hint</span></button>
         <button className="portal-seal-action" onClick={enter}><img src={ASSETS.skipSeal} alt="" /><span>Skip the word</span></button>
       </div>
       <Link href="/login" className="portal-login"><KeyRound size={14} />Already a member? Log in</Link>

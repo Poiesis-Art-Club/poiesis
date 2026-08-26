@@ -21,12 +21,15 @@ export const ASSETS = {
   numberPad: "/manus-storage/numberspad-alpha_379c0c80.png",
   owl: "/manus-storage/owl-alpha_86ebde45.png",
   skipSeal: "/manus-storage/skipseal-alpha_07bafdde.png",
+  officialLogo: "/manus-storage/poiesis-official-logo_41249a24.png",
 };
+
+export const INSTAGRAM_URL = "https://www.instagram.com/poiesis_art_club/?hl=fr";
 
 const navigation = [
   ["/about", "The Houses"],
-  ["/events", "Programme"],
   ["/create", "Studios"],
+  ["/echoes", "Echoes"],
   ["/join", "Join"],
 ];
 
@@ -34,8 +37,8 @@ export function Mark({ small = false }: { small?: boolean }) {
   return (
     <img
       className={small ? "brand-mark brand-mark--small" : "brand-mark"}
-      src={ASSETS.mark}
-      alt="Poiesis mark"
+      src={ASSETS.officialLogo}
+      alt="Poiesis Art Club logo"
     />
   );
 }
@@ -103,6 +106,7 @@ export function InkButton({
   type?: "button" | "submit" | "reset";
 }) {
   const classes = `ink-button ink-button--${tone}`;
+  if (href?.startsWith("http")) return <a href={href} target="_blank" rel="noreferrer" className={classes}>{children}<span aria-hidden="true">↗</span></a>;
   if (href) return <Link href={href} className={classes}>{children}<span aria-hidden="true">↗</span></Link>;
   return <button type={type} className={classes} onClick={onClick}>{children}<span aria-hidden="true">↗</span></button>;
 }
@@ -133,6 +137,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           {navigation.map(([href, label]) => (
             <Link key={href} href={href} className={location === href ? "nav-link nav-link--active" : "nav-link"}>{label}</Link>
           ))}
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="nav-link">Instagram ↗</a>
           <Link href="/night-gallery" className="nav-link nav-link--night">After dark</Link>
         </nav>
         <div className="nav-tools">
