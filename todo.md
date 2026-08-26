@@ -28,9 +28,16 @@ Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bout
 - [x] Diagnostiquer le 404 persistant de GitHub Pages après sélection de GitHub Actions comme source.
 - [x] Corriger le rendu vide constaté sur GitHub Pages en garantissant une origine durable d’assets et un démarrage public sans crash.
 - [ ] Renseigner manuellement les variables GitHub Actions publiques, car l’intégration GitHub ne dispose pas du droit de les administrer.
+- [ ] Ajouter les variables Supabase publiques à Netlify et redéployer afin de remplacer le domaine OAuth de repli `configuration-required.supabase.co`.
+- [ ] Récupérer avec l’autorisation du propriétaire les deux valeurs Supabase publiques et les configurer directement sur les hôtes de production.
+
+Le lien signalé pointe bien vers le domaine de sécurité de repli utilisé lorsque les variables de build Supabase sont absentes. Ce nom d’hôte ne se résout pas : il ne s’agit donc pas d’un refus de Google ni d’un problème de compte, mais de la configuration Netlify incomplète.
+
+Avec l’autorisation explicite du propriétaire, l’URL Supabase et la clé de publication ont été récupérées depuis les réglages API du projet puis ajoutées directement au contexte de build de production Netlify. Le site Netlify a été redéployé sans que ces valeurs soient inscrites dans le dépôt ou les échanges.
 - [x] Afficher un état de configuration clair au lieu d’un écran vide si Supabase n’est pas encore renseigné dans un build statique.
 - [x] Créer et déployer le site Netlify public principal Poiesis.
 - [x] Créer et déployer le site Netlify public d’assets durables compatible avec les références du site.
+- [ ] Pousser le favicon officiel vers GitHub Pages et redéployer Netlify, puis vérifier sa référence publique sur les deux hôtes.
 
 Le 26 août 2026, GitHub Actions a fini par créer le déploiement Pages avec succès. La première vérification de `https://godofcode1.github.io/poiesis-medieval/` a toutefois affiché uniquement le fond sombre ; le build publié ne dispose pas encore des variables publiques nécessaires à Supabase et aux assets visuels.
 
