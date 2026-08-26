@@ -16,11 +16,13 @@
 
 Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bouton « Continue with Google » utilise l’emblème officiel Poiesis, en cohérence avec le branding Google OAuth enregistré.
 - [x] Contrôler que la version publique ne contient aucun secret, identifiant privé ou configuration de développement exposée.
-- [ ] Créer un dépôt GitHub public avec la version validée, prêt pour GitHub Pages et l’import Netlify.
-- [ ] Autoriser la création de dépôts publics pour le compte GitHub connecté, puis reprendre l’export Poiesis.
-- [ ] Reconnecter GitHub avec l’autorisation de créer des dépôts publics et d’écrire leur contenu, ou fournir l’URL d’un dépôt public vide.
+- [x] Créer un dépôt GitHub public avec la version validée, prêt pour GitHub Pages et l’import Netlify.
+- [x] Résoudre le blocage d’accès GitHub en créant le dépôt manuellement et en autorisant l’écriture sur celui-ci.
+- [x] Reconnecter GitHub avec l’autorisation d’écrire le contenu du dépôt public vide fourni.
 - [x] Préparer les configurations de build et de redirection nécessaires à GitHub Pages et Netlify.
 - [x] Adapter le build public afin que GitHub Pages puisse servir l’interface sans exposer ni requérir les secrets d’authentification.
+- [ ] Pousser la correction du workflow GitHub Pages vers le dépôt public, relancer le workflow et confirmer la publication Pages.
+- [ ] Vérifier dans GitHub Actions qu’un nouveau run « Deploy Poiesis to GitHub Pages » aboutit avec succès.
 
 Le build statique a été compilé avec le préfixe `/poiesis-medieval/`, puis servi localement : la route profonde `/poiesis-medieval/login` charge le portail membre, ses assets distants et ses liens internes avec le bon préfixe.
 
