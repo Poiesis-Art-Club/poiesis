@@ -14,7 +14,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import { memberAuthRedirect } from "@/lib/memberAuth";
+import { memberGoogleAuthOptions } from "@/lib/memberAuth";
 import { ASSETS } from "@/components/PoiesisUI";
 
 type Mode = "sign-in" | "sign-up";
@@ -72,7 +72,7 @@ export default function Login() {
     setBusy(true);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: memberAuthRedirect(window.location.origin) },
+      options: memberGoogleAuthOptions(window.location.origin),
     });
     if (authError) setError(authError.message);
     else setMessage("Opening Google’s secure sign-in…");
@@ -153,7 +153,7 @@ export default function Login() {
               </p>
 
               <button className="member-oauth" type="button" onClick={signInWithGoogle} disabled={busy}>
-                <span className="member-oauth__mark" aria-hidden="true">G</span>
+                <span className="member-oauth__mark" aria-hidden="true"><img src={ASSETS.officialLogo} alt="" /></span>
                 {busy ? "Opening the secure gate…" : "Continue with Google"}
               </button>
               <p className="member-oauth__note">Google verifies the e-mail with Google first, so no Supabase confirmation message is needed for this route.</p>

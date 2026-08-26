@@ -7,7 +7,16 @@
 - [x] Créer les pages publiques d’accueil, de confidentialité et de conditions requises pour publier Google OAuth.
 - [x] Mettre à jour les messages d’inscription pour expliquer la confirmation et le retour durable par mot de passe.
 - [x] Vérifier avec un compte Google réel le retour vers Échos et l’ouverture de la session membre sans publication fictive.
+- [x] Diagnostiquer et corriger l’erreur 403 signalée lors de la connexion Google hors session de test.
+- [x] Comparer la requête OAuth Google générée dans le navigateur qui échoue avec le client et les paramètres actuellement enregistrés.
+- [x] Vérifier que le navigateur utilisateur charge la version Poiesis qui force le sélecteur de compte Google.
+- [x] Contrôler les paramètres Google, les URL de redirection et les journaux Supabase au moment du refus OAuth.
+- [x] Importer le logo officiel Poiesis dans le branding Google OAuth afin de remplacer le monogramme générique.
+- [x] Contrôler les repères visuels du portail membre et remplacer tout monogramme générique résiduel par le logo officiel.
+
+Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bouton « Continue with Google » utilise l’emblème officiel Poiesis, en cohérence avec le branding Google OAuth enregistré.
 - [ ] Créer un dépôt GitHub privé avec la version validée, prêt à être importé dans Netlify.
+- [ ] Autoriser la création de dépôts privés pour le compte GitHub connecté, puis reprendre l’export Poiesis.
 
 ## Limite e-mail et connecteur 21st
 
@@ -34,6 +43,10 @@ Le 26 août 2026, la connexion Google réelle a ouvert une session Supabase et a
 Le formulaire bloque localement deux mots de passe différents avant tout appel Supabase et affiche un retour clair. La création réelle d’un compte n’a pas été simulée afin de ne pas créer de membre fictif ni consommer la limite e-mail ; un membre réel peut finaliser son mot de passe depuis sa session confirmée.
 
 Le connecteur MCP 21st est activé et connecté. Après rafraîchissement de session, son contrôle a confirmé 35 outils disponibles, puis une recherche réelle non destructive a été exécutée avec succès ; aucun résultat correspondant à « medieval parchment » n’a été retourné.
+
+Le parcours Google force désormais `prompt=select_account`. L’URL OAuth générée par Supabase a été contrôlée après cette modification : elle ouvre bien le sélecteur de compte Google avec le même client et le même URI de rappel enregistrés. La confirmation depuis le navigateur du propriétaire reste à recueillir pour fermer l’incident 403.
+
+Le propriétaire a confirmé que le test avec l’URL de prévisualisation redémarrée fonctionne. L’incident 403 est donc résolu : le sélecteur de compte Google et la connexion membre sont à nouveau accessibles.
 
 ## Lien magique et e-mail membre
 
