@@ -13,6 +13,7 @@ import Join from "@/pages/Join";
 import Login from "@/pages/Login";
 import NightGallery from "@/pages/NightGallery";
 import NotFound from "@/pages/NotFound";
+import { Privacy, Terms } from "@/pages/Policies";
 import SubmitEcho from "@/pages/SubmitEcho";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -28,6 +29,8 @@ function Router() {
     <Route path="/create" component={Create} />
     <Route path="/echoes" component={Echoes} />
     <Route path="/email-confirmed" component={EmailConfirmed} />
+    <Route path="/privacy" component={Privacy} />
+    <Route path="/terms" component={Terms} />
     <Route path="/create/intercept" component={Intercept} />
     <Route path="/create/submit" component={SubmitEcho} />
     <Route path="/night-gallery" component={NightGallery} />

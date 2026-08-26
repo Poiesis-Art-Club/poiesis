@@ -1,17 +1,26 @@
 # Mise à jour du portail Poiesis
 
+## Inscription vérifiée et e-mail fiable
+
+- [x] Conserver la confirmation e-mail obligatoire afin de refuser les adresses non vérifiées.
+- [x] Ajouter Google OAuth comme voie gratuite d’inscription vérifiée, en conservant la confirmation e-mail pour les comptes e-mail + mot de passe.
+- [x] Créer les pages publiques d’accueil, de confidentialité et de conditions requises pour publier Google OAuth.
+- [x] Mettre à jour les messages d’inscription pour expliquer la confirmation et le retour durable par mot de passe.
+- [x] Vérifier avec un compte Google réel le retour vers Échos et l’ouverture de la session membre sans publication fictive.
+- [ ] Créer un dépôt GitHub privé avec la version validée, prêt à être importé dans Netlify.
+
 ## Limite e-mail et connecteur 21st
 
-- [ ] Confirmer que la connexion e-mail et mot de passe remplace le lien magique dans le parcours principal.
+- [x] Confirmer que la connexion e-mail et mot de passe remplace le lien magique dans le parcours principal.
 - [x] Préparer le connecteur MCP 21st à l’URL officielle avec une clé API utilisateur.
-- [ ] Vérifier la liste des outils 21st après la connexion du connecteur.
+- [x] Vérifier la liste des outils 21st après la connexion du connecteur.
 
 ## Connexion durable, thème sombre et Studios
 
-- [ ] Remplacer le lien magique limité par une inscription et connexion e-mail + mot de passe Supabase.
-- [ ] Conserver les sessions membres de façon sécurisée sans stocker de mot de passe dans l’application.
-- [ ] Corriger le basculement et les contrastes du thème sombre.
-- [ ] Ajouter aux Studios davantage de pistes pratiques : matière, image, son, scène, artisanat, édition, numérique, cuisine culturelle et collaborations.
+- [x] Remplacer le lien magique limité par une inscription et connexion e-mail + mot de passe Supabase.
+- [x] Conserver les sessions membres de façon sécurisée sans stocker de mot de passe dans l’application.
+- [x] Corriger le basculement et les contrastes du thème sombre.
+- [x] Ajouter aux Studios davantage de pistes pratiques : matière, image, son, scène, artisanat, édition, numérique, cuisine culturelle et collaborations.
 - [ ] Tester les parcours inscription, connexion persistante et les thèmes clair/sombre.
 
 ### Vérification visuelle en cours
@@ -20,9 +29,11 @@ Les Studios enrichis s’affichent avec les huit pistes de pratiques concrètes.
 
 Le portail membre affiche bien un choix « Sign in / Create account » et l’inscription ajoute un second champ de confirmation de mot de passe, sans proposer de lien magique comme parcours principal.
 
+Le 26 août 2026, la connexion Google réelle a ouvert une session Supabase et a renvoyé directement vers Échos ; l’archive identifie le membre connecté sans publication de démonstration. Le basculement clair/sombre a également été vérifié dans cette session et le réglage clair initial a été restauré.
+
 Le formulaire bloque localement deux mots de passe différents avant tout appel Supabase et affiche un retour clair. La création réelle d’un compte n’a pas été simulée afin de ne pas créer de membre fictif ni consommer la limite e-mail ; un membre réel peut finaliser son mot de passe depuis sa session confirmée.
 
-Le connecteur MCP 21st a été créé et activé avec l’endpoint officiel. Sa configuration expose bien les outils attendus dans son inspection, mais l’outil de ligne de commande de la session en cours ne le découvre pas encore ; la vérification d’appel réel reste donc en attente d’un rafraîchissement de session.
+Le connecteur MCP 21st est activé et connecté. Après rafraîchissement de session, son contrôle a confirmé 35 outils disponibles, puis une recherche réelle non destructive a été exécutée avec succès ; aucun résultat correspondant à « medieval parchment » n’a été retourné.
 
 ## Lien magique et e-mail membre
 
