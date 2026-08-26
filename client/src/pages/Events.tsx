@@ -1,44 +1,18 @@
-/** Manuscrit de Minuit — proclamations en feuillets, onglets accessibles et inscription par sceau. */
-import { useState } from "react";
-import { CalendarDays, MapPin } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ChapterTitle, InkButton, SiteShell } from "@/components/PoiesisUI";
+/** Le Cloître des pratiques — programme lisible de sessions artistiques et d’assemblées culturelles. */
+import { CalendarDays, CircleHelp, Film, Hand, Mic2, Palette, Scale, UsersRound } from "lucide-react";
+import { InkButton, SiteShell } from "@/components/PoiesisUI";
 
-const events = {
-  upcoming: [
-    { title: "The Midnight Salon", date: "04 September 2026", place: "Springcrush Hall, Casablanca", text: "An evening of shared sketching, candlelight and the Echo read aloud." },
-    { title: "The Illumination Workshop", date: "20 September 2026", place: "The Scriptorium · Online", text: "A working session on drop caps, gilding and manuscript borders." },
-  ],
-  past: [
-    { title: "Founding Gathering", date: "12 May 2026", place: "Springcrush Hall, Casablanca", text: "The first meeting of the guild — a reading of the founding scrolls." },
-  ],
-};
-
-function EventList({ kind, select }: { kind: "upcoming" | "past"; select: (name: string) => void }) {
-  return <div className="events-stack">{events[kind].map((event, index) => <article className="event-leaf" key={event.title}>
-    <div className="event-index">0{index + 1}</div><div className="event-main"><h2>{event.title}</h2><p>{event.text}</p><div className="event-meta"><span><CalendarDays size={14} />{event.date}</span><span><MapPin size={14} />{event.place}</span></div></div>
-    {kind === "upcoming" ? <InkButton onClick={() => select(event.title)}>Reserve a seat</InkButton> : <p className="event-past">Entered in the archive</p>}
-  </article>)}</div>;
-}
+const programme = [
+  { icon: Hand, type: "Open studio", title: "Material & Form", text: "A shared working session for sculpture, drawing, painting, textile, object making and installation. Bring a project or come to observe." },
+  { icon: Film, type: "Screening & listening room", title: "Image, Sound & Performance", text: "A place for films, music, sound pieces, documentation, movement research and conversation after the work." },
+  { icon: Scale, type: "Culture & philosophy salon", title: "Ideas in common", text: "A moderated discussion around a text, an artwork, a cultural question or a philosophical problem chosen by the members." },
+];
 
 export default function Events() {
-  const [selected, setSelected] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
-  const close = () => { setSelected(null); setSubmitted(false); };
-  return <SiteShell>
-    <section className="event-page">
-      <ChapterTitle eyebrow="Proclamations & gatherings" title="Meet where the work is warm." text="Gatherings that make room for a sketchbook, a half-formed idea and the people willing to see it begin." />
-      <Tabs defaultValue="upcoming" className="event-tabs">
-        <TabsList className="event-tab-list"><TabsTrigger value="upcoming">Open proclamations</TabsTrigger><TabsTrigger value="past">In the archive</TabsTrigger></TabsList>
-        <TabsContent value="upcoming"><EventList kind="upcoming" select={setSelected} /></TabsContent>
-        <TabsContent value="past"><EventList kind="past" select={setSelected} /></TabsContent>
-      </Tabs>
-    </section>
-    <Dialog open={Boolean(selected)} onOpenChange={(value) => !value && close()}>
-      <DialogContent className="seal-dialog" showCloseButton>
-        {!submitted ? <><DialogHeader><p className="section-tag"><span />Claim your chair</p><DialogTitle>Reserve: {selected}</DialogTitle><DialogDescription>Leave your name and email. This prototype confirms your place in the interface only.</DialogDescription></DialogHeader><form className="seal-form" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}><label>Name<input required placeholder="Your name" /></label><label>Email<input required type="email" placeholder="name@email.com" /></label><InkButton type="submit">Seal my place</InkButton></form></> : <div className="success-panel"><span>✓</span><h2>Your seat is provisionally sealed.</h2><p>This visual prototype does not send data yet. Connect a form service when you are ready to collect registrations.</p><InkButton onClick={close} tone="ink">Close the letter</InkButton></div>}
-      </DialogContent>
-    </Dialog>
-  </SiteShell>;
+  return <SiteShell><section className="programme-page">
+    <header className="programme-header"><p className="folio-label">The programme</p><h1>Sessions for<br />making and thinking.</h1><p>Poiesis hosts formats rather than a single discipline. The programme can hold a workshop, a screening, a critique, a performance, a cultural conversation or a debate.</p></header>
+    <div className="programme-notice"><CalendarDays size={17}/><span>Dates, venues and hosts are announced by the club. Use this page to understand the kinds of sessions you can join or propose.</span></div>
+    <div className="programme-list">{programme.map(({ icon: Icon, type, title, text }, index) => <article className="proclamation" key={title}><span>0{index + 1}</span><Icon size={26}/><div><p>{type}</p><h2>{title}</h2><p className="proclamation-text">{text}</p></div><InkButton href="/join" tone="ink">Propose or attend</InkButton></article>)}</div>
+    <section className="programme-foot"><Mic2 size={21}/><div><h2>Have an idea for the programme?</h2><p>Suggest a guest, a work session, a screening, a listening room or a question worth discussing.</p></div><InkButton href="/join">Send a proposal</InkButton></section>
+  </section></SiteShell>;
 }

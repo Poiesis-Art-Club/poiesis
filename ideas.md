@@ -76,3 +76,9 @@ Une enluminure de **Sapientia** provenant du *Codex Gigas* (vers 1250) a été c
 ## Style Decisions
 
 La prévisualisation et les assets transmis par le club constituent désormais la **spécification de référence du portail**. L’entrée doit s’organiser comme un panneau de parchemin horizontal : fond parchemin, grandes arcades gothiques latérales, l’emblème au centre, cinq alvéoles de saisie en bas du médaillon et deux sceaux de part et d’autre. Les branches, la chouette et les arcades restent des éléments de marge ; elles ne doivent pas gêner la lecture ni être traitées comme des éléments d’interface génériques. La page de connexion réemploie cette même architecture matérielle, sans simuler une authentification distante.
+
+## Audit et correction — Maison des arts et des idées
+
+L’audit visuel a confirmé que le portail est le seul écran qui exploite réellement la grammaire médiévale fournie. Les autres routes utilisent surtout des aplats sombres, des cartes rectangulaires et une voix abstraite ; elles doivent devenir des **feuillets de programme**, des **proclamations** et des **salles du cloître**, sans réduire le club à l’écriture ou au dessin.
+
+La direction corrective est **Le Cloître des pratiques**. Les pages utilisent le parchemin comme terrain principal, des bordures gothiques et des marges illustrées comme repères physiques, et une typographie de programme claire. Le contenu ne promet plus une expérience vague : il nomme concrètement les arts de l’image, de la matière, du son et du corps, ainsi que les cultures, la philosophie et les débats. Chaque page doit répondre simplement à l’une de ces questions : *quelles pratiques sont les bienvenues, que se passe-t-il ici, comment participer ?*

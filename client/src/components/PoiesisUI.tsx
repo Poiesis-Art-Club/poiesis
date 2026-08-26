@@ -24,10 +24,10 @@ export const ASSETS = {
 };
 
 const navigation = [
-  ["/about", "Chronicle"],
-  ["/events", "Gatherings"],
-  ["/create", "Scriptorium"],
-  ["/join", "Guildhall"],
+  ["/about", "The Houses"],
+  ["/events", "Programme"],
+  ["/create", "Studios"],
+  ["/join", "Join"],
 ];
 
 export function Mark({ small = false }: { small?: boolean }) {
@@ -147,8 +147,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <footer className="site-footer">
         <div className="footer-symbol"><Mark small /></div>
-        <p>Poiesis — an illuminated manuscript for the living.</p>
-        <p className="footer-note">Made for unfinished work, shared in good faith.</p>
+        <p>Poiesis — arts, culture and inquiry.</p>
+        <p className="footer-note">A house for making, meeting and thinking.</p>
       </footer>
     </div>
   );

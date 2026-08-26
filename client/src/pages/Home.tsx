@@ -1,74 +1,39 @@
-/** Manuscrit de Minuit — page d’accueil : table de scriptorium asymétrique, clair-obscur et artefacts vivants. */
-import { Link } from "wouter";
-import { ArrowDownRight, ArrowUpRight, Feather, MapPin, PenLine } from "lucide-react";
-import { ASSETS, InkButton, ManuscriptCard, Ornament, SectionTag, Seal3D, SiteShell } from "@/components/PoiesisUI";
+/** Le Cloître des pratiques — accueil concret pour une maison de tous les arts, cultures et idées. */
+import { ArrowUpRight, Brush, Drama, Globe2, Music2, Palette, ScanLine, Shapes, UsersRound } from "lucide-react";
+import { ASSETS, InkButton, SiteShell } from "@/components/PoiesisUI";
 
-const pathways = [
-  { number: "I", title: "The Chronicle", text: "How a scattering of sketches became a guild with room for beginnings.", href: "/about" },
-  { number: "II", title: "Gatherings", text: "Candlelit salons, working tables and online craft sessions.", href: "/events" },
-  { number: "III", title: "The Guildhall", text: "Three ways to come closer to the table — on your own terms.", href: "/join" },
+const houses = [
+  { icon: Shapes, numeral: "I", title: "Image & Matter", text: "Sculpture, drawing, painting, installation, photography and design." },
+  { icon: Music2, numeral: "II", title: "Sound & Stage", text: "Music, dance, theatre, film, performance and live experiment." },
+  { icon: Globe2, numeral: "III", title: "Cultures & Thought", text: "Literature, philosophy, cultural exchange, reading groups and debate." },
+  { icon: ScanLine, numeral: "IV", title: "Craft & New Forms", text: "Print, digital practice, architecture, fashion and projects between disciplines." },
 ];
 
 export default function Home() {
-  return (
-    <SiteShell>
-      <section className="home-hero" style={{ backgroundImage: `url(${ASSETS.hero})` }}>
-        <div className="hero-overlay" />
-        <div className="hero-copy">
-          <SectionTag>An illuminated manuscript for the living</SectionTag>
-          <h1>Bring your <em>unfinished</em><br />work to the table.</h1>
-          <p>Poiesis is a guild of makers: drawing, writing and answering the prompts that arrive like sealed letters from an unseen hand.</p>
-          <div className="hero-actions">
-            <InkButton href="/create">Enter the Scriptorium</InkButton>
-            <InkButton href="/about" tone="ghost">Read our Chronicle</InkButton>
-          </div>
-        </div>
-        <div className="hero-side-note"><span>01</span><p>Thought<br />into form</p></div>
-        <Seal3D className="hero-seal" />
-        <a href="#paths" className="hero-scroll">Scroll to enter <ArrowDownRight size={17} /></a>
-      </section>
+  return <SiteShell>
+    <section className="great-hall" style={{ backgroundImage: `url(${ASSETS.parchment})` }}>
+      <img className="hall-arch hall-arch--left" src={ASSETS.archways} alt="" aria-hidden="true" />
+      <img className="hall-arch hall-arch--right" src={ASSETS.archways} alt="" aria-hidden="true" />
+      <img className="hall-vine hall-vine--left" src={ASSETS.birdvine} alt="" aria-hidden="true" />
+      <img className="hall-vine hall-vine--right" src={ASSETS.birdvine} alt="" aria-hidden="true" />
+      <div className="great-hall__copy">
+        <p className="folio-label">Poiesis · House of art, culture & inquiry</p>
+        <h1>A meeting place<br />for <em>every</em> art.</h1>
+        <p>Poiesis is a member-led club for people who make, study, perform, collect, question and discuss. Bring a sculpture, a film, a sound, a photograph, a text, a question — or simply attention.</p>
+        <div className="great-hall__actions"><InkButton href="/about">Explore the houses</InkButton><InkButton href="/events" tone="ink">See the programme</InkButton></div>
+      </div>
+      <div className="hall-seal"><img src={ASSETS.portal} alt="Poiesis emblem" /><span>Open to all practices</span></div>
+    </section>
 
-      <section className="paths-section" id="paths">
-        <div className="section-rail"><span>CHAPTER ONE</span><i /></div>
-        <div className="paths-intro">
-          <SectionTag>Choose a path</SectionTag>
-          <h2>Every maker begins<br />somewhere different.</h2>
-          <p>Move through the guild as you would an old house — from its history, to its gatherings, to the shared work left on the table.</p>
-        </div>
-        <div className="path-list">
-          {pathways.map((path) => (
-            <Link href={path.href} className="pathway" key={path.number}>
-              <span className="pathway-number">{path.number}</span>
-              <div><h3>{path.title}</h3><p>{path.text}</p></div>
-              <ArrowUpRight size={20} />
-            </Link>
-          ))}
-        </div>
-      </section>
+    <section className="houses-ledger">
+      <div className="ledger-heading"><p className="folio-label">The four houses</p><h2>Different practices.<br />One common table.</h2><p>We do not separate art from culture or making from thinking. The houses are starting points, not limits.</p></div>
+      <div className="houses-grid">{houses.map(({ icon: Icon, numeral, title, text }) => <article className="house-folio" key={title}><span>{numeral}</span><Icon size={22} /><h3>{title}</h3><p>{text}</p><ArrowUpRight size={17} /></article>)}</div>
+    </section>
 
-      <section className="home-scriptorium">
-        <div className="scriptorium-visual" style={{ backgroundImage: `url(${ASSETS.workshop})` }}>
-          <div className="visual-stamp"><Feather size={18} /><span>Made by hand</span></div>
-        </div>
-        <div className="scriptorium-copy">
-          <SectionTag>The apothecary of prompts</SectionTag>
-          <h2>A small beginning<br />can make a world.</h2>
-          <p>Draw a prompt, compose a reply to a stranger’s Echo, or send an unfinished fragment into the current.</p>
-          <div className="mini-principles"><span><PenLine size={15} />No polished answer required</span><span><MapPin size={15} />A shared table, online & in person</span></div>
-          <InkButton href="/create" tone="ink">Draw a prompt</InkButton>
-        </div>
-      </section>
+    <section className="assembly-banner" style={{ backgroundImage: `url(${ASSETS.gallery})` }}>
+      <div className="assembly-banner__shade" /><div className="assembly-banner__copy"><UsersRound size={23} /><p className="folio-label">The common room</p><h2>Make, show,<br />listen, debate.</h2><p>Open studios, screenings, listening rooms, critique circles, cultural conversations and philosophy salons share the same hall.</p><InkButton href="/events" tone="ghost">View the programme</InkButton></div>
+    </section>
 
-      <section className="night-promo" style={{ backgroundImage: `url(${ASSETS.gallery})` }}>
-        <div className="night-promo__shade" />
-        <div className="night-promo__content">
-          <Ornament />
-          <SectionTag>The doors after nine</SectionTag>
-          <h2>Some work only speaks<br />when the gallery sleeps.</h2>
-          <p>The Night Gallery protects the strange, the tentative and the unfinished from the tidy light of day.</p>
-          <InkButton href="/night-gallery" tone="ghost">Enter after dark</InkButton>
-        </div>
-      </section>
-    </SiteShell>
-  );
+    <section className="home-studio-note"><div><Brush size={20} /><p className="folio-label">Need a starting point?</p><h2>The studios welcome work in any medium.</h2></div><p>Use a prompt, share a work in progress, or start a cross-disciplinary conversation.</p><InkButton href="/create" tone="ink">Enter the studios</InkButton></section>
+  </SiteShell>;
 }

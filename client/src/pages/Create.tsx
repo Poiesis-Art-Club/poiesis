@@ -1,20 +1,19 @@
-/** Manuscrit de Minuit — apothicaire de prompts, tirage cérémoniel et échange d’Échos. */
+/** Le Cloître des pratiques — studios multi-médias : créer, croiser les disciplines et partager des travaux. */
 import { useState } from "react";
-import { Dices, Send, Telescope } from "lucide-react";
-import { ChapterTitle, InkButton, ManuscriptCard, Ornament, SiteShell } from "@/components/PoiesisUI";
+import { Box, Dices, Film, MessageCircleMore, Music2, Palette, Send, Sparkles } from "lucide-react";
+import { InkButton, SiteShell } from "@/components/PoiesisUI";
 
-const objects = ["Tarnished mirror", "Sacred relic", "Golden feather", "Broken hourglass", "Forgotten crown", "Sealed letter", "Moth-eaten banner", "Iron key"];
-const emotions = ["Yearning", "Melancholy", "Euphoria", "Reverence", "Dread", "Nostalgia", "Defiance", "Wonder"];
-const rules = ["Use only sky blue and gold", "Write in four lines", "Include a bird motif", "No straight lines", "Let a shadow of the past appear", "Tell it backwards", "Use only three colours", "Leave an unfinished edge"];
+const practices = ["Sculpture", "Photography", "Music", "Film", "Dance", "Drawing", "Writing", "Performance", "Design", "Philosophy through art"];
+const startingPoints = ["Start from a material you found this week", "Begin with a sound you cannot forget", "Work from a memory of a place", "Choose a work from another culture and research its context", "Translate an idea from one medium into another", "Make something that asks a question rather than giving an answer"];
+const invitations = ["Invite a person from another discipline to respond", "Show the process, not only the result", "Leave a question for a future discussion", "Use one constraint that comes from your medium", "Bring it to the next open studio"];
 const choose = (list: string[]) => list[Math.floor(Math.random() * list.length)];
 
 export default function Create() {
-  const [prompt, setPrompt] = useState<{ object: string; emotion: string; rule: string } | null>(null);
-  const draw = () => setPrompt({ object: choose(objects), emotion: choose(emotions), rule: choose(rules) });
-  return <SiteShell><section className="create-page">
-    <ChapterTitle eyebrow="The Scriptorium" title="Make something from the first spark." text="A small apothecary of prompts, echoes and unfinished works — all ready for the next person who needs a beginning." />
-    <section className="prompt-stage"><div className="prompt-stage__copy"><p className="section-tag"><span />Make me create</p><h2>Draw three cards<br />from the cabinet.</h2><p>An object. An emotion. A constraint. Not a recipe — just enough friction to begin.</p><button className="draw-prompt" onClick={draw}><Dices size={18} /><span>{prompt ? "Draw again" : "Draw a prompt"}</span></button></div><div className="prompt-cards">{prompt ? <><div className="prompt-card"><p>Object</p><strong>{prompt.object}</strong></div><div className="prompt-card prompt-card--shift"><p>Emotion</p><strong>{prompt.emotion}</strong></div><div className="prompt-card prompt-card--small"><p>Rule</p><strong>{prompt.rule}</strong></div></> : <><div className="prompt-card prompt-card--blank">Object</div><div className="prompt-card prompt-card--blank prompt-card--shift">Emotion</div><div className="prompt-card prompt-card--blank prompt-card--small">Rule</div></>}</div></section>
-    <section className="echo-section"><div className="echo-title"><Ornament /><p className="section-tag"><span />The community exchange</p><h2>Pass a small work<br />between strangers.</h2></div><div className="echo-options"><ManuscriptCard><Telescope size={21} /><h3>Intercept an Echo</h3><p>Receive a stranger’s work and offer your attentive reading of it.</p><InkButton href="/create/intercept" tone="ink">Open an Echo</InkButton></ManuscriptCard><ManuscriptCard className="echo-submit"><Send size={21} /><h3>Create an Echo</h3><p>Send an image, a line or a fragment into the current for someone else to find.</p><InkButton href="/create/submit">Release a work</InkButton></ManuscriptCard></div></section>
-    <div className="after-dark-line"><span />The Night Gallery opens after dark. <a href="/night-gallery">Go softly ↗</a></div>
+  const [prompt, setPrompt] = useState<{ practice: string; start: string; invitation: string } | null>(null);
+  const draw = () => setPrompt({ practice: choose(practices), start: choose(startingPoints), invitation: choose(invitations) });
+  return <SiteShell><section className="studio-page">
+    <header className="studio-header"><p className="folio-label">The studios</p><h1>Make in your medium.<br /><em>Meet another.</em></h1><p>The studios are for every practice: work alone, work together, test an idea, or start a conversation across forms.</p></header>
+    <section className="studio-wheel"><div className="studio-wheel__copy"><Sparkles size={20}/><p className="folio-label">A starting point</p><h2>Choose a practice,<br />a question, a next step.</h2><p>Use this draw when you need movement, not a rulebook.</p><button className="draw-prompt" onClick={draw}><Dices size={18}/>{prompt ? "Draw again" : "Draw a studio prompt"}</button></div><div className="studio-cards">{prompt ? <><article><p>Practice</p><strong>{prompt.practice}</strong></article><article><p>Starting point</p><strong>{prompt.start}</strong></article><article><p>Invitation</p><strong>{prompt.invitation}</strong></article></> : <><article><p>Practice</p><strong>Any medium</strong></article><article><p>Starting point</p><strong>One question</strong></article><article><p>Invitation</p><strong>One exchange</strong></article></>}</div></section>
+    <section className="studio-doors"><article><Box size={24}/><h2>Open a work</h2><p>Share an image, a link, a score, a film note, a fragment, a proposal or a question for the other members.</p><InkButton href="/create/submit" tone="ink">Share work</InkButton></article><article><MessageCircleMore size={24}/><h2>Respond to a work</h2><p>Meet an anonymous contribution and leave a useful response from your own practice or point of view.</p><InkButton href="/create/intercept">Open the exchange</InkButton></article><article><Film size={24}/><h2>Bring it to the hall</h2><p>Turn a studio idea into a screening, listening room, open rehearsal, critique circle or discussion.</p><InkButton href="/events">See the programme</InkButton></article></section>
   </section></SiteShell>;
 }
