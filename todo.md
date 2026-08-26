@@ -13,18 +13,22 @@
 
 ## Comptes membres et Échos connectés
 
-- [ ] Définir les données nécessaires aux profils, publications Échos et réponses.
+- [x] Définir les données nécessaires aux profils, publications Échos et réponses.
 - [x] Activer le projet full-stack avec comptes membres et base de données.
 - [x] Connecter l’inscription et la connexion aux comptes réels.
 - [x] Permettre aux membres connectés de publier et commenter des Échos.
-- [ ] Recentrer l’accueil sur la présentation du club et l’accès aux Échos.
+- [x] Recentrer l’accueil sur la présentation du club et l’accès aux Échos.
 - [ ] Tester les flux d’authentification et de publication sans créer de contenu fictif.
+
+### État de validation réel
+
+Un lien magique Supabase a été envoyé à l’adresse de test explicitement fournie par le propriétaire. Supabase a créé la demande d’authentification, tandis que la session reste à confirmer après ouverture de l’e-mail. Le test de santé du projet Supabase réussit, l’accès invité à Échos est bien bloqué par une page de connexion, et les politiques RLS de lecture, création, modification et suppression sont présentes sur les profils, Échos et réponses. Aucune publication de démonstration n’a été créée.
 
 ## Annonces et inscriptions via Instagram
 
 - [x] Retirer la page Programme et les liens de navigation associés.
 - [x] Relier les appels à l’action pour événements, inscriptions et propositions vers Instagram.
-- [ ] Vérifier que la navigation ne mène plus à une page d’annonces interne.
+- [x] Vérifier que la navigation ne mène plus à une page d’annonces interne.
 
 ## Typographie et Renaissance
 
