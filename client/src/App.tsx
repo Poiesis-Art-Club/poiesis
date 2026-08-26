@@ -1,42 +1,38 @@
+/** Manuscrit de Minuit — routes de Poiesis : un parcours continu entre seuil, table et galerie nocturne. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import About from "@/pages/About";
+import Create from "@/pages/Create";
+import Events from "@/pages/Events";
+import Gate from "@/pages/Gate";
+import Home from "@/pages/Home";
+import Intercept from "@/pages/Intercept";
+import Join from "@/pages/Join";
+import Login from "@/pages/Login";
+import NightGallery from "@/pages/NightGallery";
 import NotFound from "@/pages/NotFound";
+import SubmitEcho from "@/pages/SubmitEcho";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-
 
 function Router() {
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
+  return <Switch>
+    <Route path="/" component={Gate} />
+    <Route path="/login" component={Login} />
+    <Route path="/home" component={Home} />
+    <Route path="/about" component={About} />
+    <Route path="/events" component={Events} />
+    <Route path="/join" component={Join} />
+    <Route path="/create" component={Create} />
+    <Route path="/create/intercept" component={Intercept} />
+    <Route path="/create/submit" component={SubmitEcho} />
+    <Route path="/night-gallery" component={NightGallery} />
+    <Route path="/404" component={NotFound} />
+    <Route component={NotFound} />
+  </Switch>;
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
+export default function App() {
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark" switchable><TooltipProvider><Toaster /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
-
-export default App;
