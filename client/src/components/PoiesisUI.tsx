@@ -7,7 +7,7 @@ import { Menu, Moon, Sparkles, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 
-const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "";
+const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "https://poiesis-assets.netlify.app";
 const asset = (path: string) => `${assetOrigin}${path}`;
 
 export const ASSETS = {

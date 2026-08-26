@@ -15,6 +15,7 @@ import NightGallery from "@/pages/NightGallery";
 import NotFound from "@/pages/NotFound";
 import { Privacy, Terms } from "@/pages/Policies";
 import SubmitEcho from "@/pages/SubmitEcho";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -40,6 +41,15 @@ function Router() {
   </Switch></WouterRouter>;
 }
 
+function StaticBuildConfigurationNotice() {
+  if (isSupabaseConfigured) return null;
+
+  return <aside className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-3xl border border-[#d7b66f]/55 bg-[#24104c]/95 px-5 py-4 text-center text-sm text-[#fff5db] shadow-2xl backdrop-blur md:bottom-6 md:px-8" role="status">
+    <strong className="font-serif tracking-wide text-[#ffd87e]">Poiesis is being prepared for this public address.</strong>
+    <span className="ml-2">The house is open; member sign-in and Echoes will appear once the host receives its public Supabase configuration.</span>
+  </aside>;
+}
+
 export default function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark" switchable><TooltipProvider><Toaster /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark" switchable><TooltipProvider><Toaster /><Router /><StaticBuildConfigurationNotice /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }

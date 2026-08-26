@@ -21,8 +21,20 @@ Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bout
 - [x] Reconnecter GitHub avec l’autorisation d’écrire le contenu du dépôt public vide fourni.
 - [x] Préparer les configurations de build et de redirection nécessaires à GitHub Pages et Netlify.
 - [x] Adapter le build public afin que GitHub Pages puisse servir l’interface sans exposer ni requérir les secrets d’authentification.
-- [ ] Pousser la correction du workflow GitHub Pages vers le dépôt public, relancer le workflow et confirmer la publication Pages.
+- [x] Pousser la correction du workflow GitHub Pages vers le dépôt public et relancer son build.
+- [ ] Activer GitHub Pages avec « GitHub Actions » comme source dans les réglages du dépôt, puis confirmer le déploiement.
 - [ ] Vérifier dans GitHub Actions qu’un nouveau run « Deploy Poiesis to GitHub Pages » aboutit avec succès.
+- [x] Contrôler l’état et les journaux du dernier déploiement GitHub Pages signalé comme échoué.
+- [ ] Diagnostiquer le 404 persistant de GitHub Pages après sélection de GitHub Actions comme source.
+- [ ] Corriger le rendu vide constaté sur GitHub Pages en configurant les variables publiques de build et une origine durable d’assets.
+- [ ] Renseigner manuellement les variables GitHub Actions publiques, car l’intégration GitHub ne dispose pas du droit de les administrer.
+- [ ] Afficher un état de configuration clair au lieu d’un écran vide si Supabase n’est pas encore renseigné dans un build statique.
+
+Le 26 août 2026, GitHub Actions a fini par créer le déploiement Pages avec succès. La première vérification de `https://godofcode1.github.io/poiesis-medieval/` a toutefois affiché uniquement le fond sombre ; le build publié ne dispose pas encore des variables publiques nécessaires à Supabase et aux assets visuels.
+
+Un site Netlify public d’assets `poiesis-assets` a été créé et déployé le 26 août 2026. Son déploiement sert de future origine durable pour les images du site, sous réserve d’une vérification HTTP et de son intégration dans les variables de build.
+
+La vérification visuelle a confirmé que l’emblème gothique central et les autres références `/manus-storage` sont servis depuis `https://poiesis-assets.netlify.app`. L’application utilise désormais cette origine par défaut lors d’un build statique.
 
 Le build statique a été compilé avec le préfixe `/poiesis-medieval/`, puis servi localement : la route profonde `/poiesis-medieval/login` charge le portail membre, ses assets distants et ses liens internes avec le bon préfixe.
 
