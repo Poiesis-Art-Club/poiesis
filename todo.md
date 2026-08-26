@@ -1,5 +1,12 @@
 # Mise à jour du portail Poiesis
 
+## Typographie et Renaissance
+
+- [x] Auditer les titres, textes, formulaires et repères du site par rapport à une esthétique médiévale et Renaissance lisible.
+- [x] Ajouter une hiérarchie typographique inspirée des manuscrits, des humanistes et des lettrines.
+- [x] Introduire des cadres gravés, filigranes et repères de page sur les écrans principaux.
+- [x] Contrôler la lisibilité des nouvelles typographies sur desktop et mobile.
+
 ## Refonte de l’espace membre
 
 - [x] Auditer la composition actuelle de la connexion par rapport au portail de référence.
