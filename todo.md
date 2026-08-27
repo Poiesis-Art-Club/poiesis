@@ -28,8 +28,10 @@ Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bout
 - [x] Diagnostiquer le 404 persistant de GitHub Pages après sélection de GitHub Actions comme source.
 - [x] Corriger le rendu vide constaté sur GitHub Pages en garantissant une origine durable d’assets et un démarrage public sans crash.
 - [ ] Renseigner manuellement les variables GitHub Actions publiques, car l’intégration GitHub ne dispose pas du droit de les administrer.
-- [ ] Ajouter les variables Supabase publiques à Netlify et redéployer afin de remplacer le domaine OAuth de repli `configuration-required.supabase.co`.
-- [ ] Récupérer avec l’autorisation du propriétaire les deux valeurs Supabase publiques et les configurer directement sur les hôtes de production.
+- [x] Ajouter les variables Supabase publiques à Netlify et redéployer afin de remplacer le domaine OAuth de repli `configuration-required.supabase.co`.
+- [x] Récupérer avec l’autorisation du propriétaire les deux valeurs Supabase publiques et les configurer directement sur Netlify.
+- [ ] Configurer les deux variables Supabase publiques dans GitHub Actions puis relancer le workflow GitHub Pages.
+- [ ] Vérifier que GitHub Pages génère une URL OAuth vers le projet Supabase réel au lieu du domaine de repli.
 
 Le lien signalé pointe bien vers le domaine de sécurité de repli utilisé lorsque les variables de build Supabase sont absentes. Ce nom d’hôte ne se résout pas : il ne s’agit donc pas d’un refus de Google ni d’un problème de compte, mais de la configuration Netlify incomplète.
 
@@ -37,7 +39,14 @@ Avec l’autorisation explicite du propriétaire, l’URL Supabase et la clé de
 - [x] Afficher un état de configuration clair au lieu d’un écran vide si Supabase n’est pas encore renseigné dans un build statique.
 - [x] Créer et déployer le site Netlify public principal Poiesis.
 - [x] Créer et déployer le site Netlify public d’assets durables compatible avec les références du site.
-- [ ] Pousser le favicon officiel vers GitHub Pages et redéployer Netlify, puis vérifier sa référence publique sur les deux hôtes.
+- [x] Pousser le favicon officiel vers GitHub Pages et redéployer Netlify, puis vérifier sa référence publique sur les deux hôtes.
+- [x] Recompiler localement le bundle Netlify avec les variables Supabase de production avant le déploiement manuel des fichiers statiques.
+- [x] Inclure une règle SPA `_redirects` dans le build statique Netlify afin que les routes membres directes comme `/login` restent accessibles après un déploiement manuel.
+- [ ] Ajouter les quatre URLs de redirection de production dans Supabase Auth et les deux origines publiques dans Google Auth Platform.
+
+Les destinations de production `/echoes` et `/email-confirmed` sont maintenant enregistrées dans Supabase Auth pour Netlify et GitHub Pages. Il reste à ajouter les deux origines publiques et à actualiser les liens de branding dans Google Auth Platform.
+
+Google Auth Platform enregistre désormais les liens de branding Netlify (`/`, `/privacy`, `/terms`), le domaine `poiesis-medieval.netlify.app` et son origine JavaScript OAuth. Le callback Supabase conserve l’URI `https://qllpnswtlmlftlxieohs.supabase.co/auth/v1/callback`.
 
 Le 26 août 2026, GitHub Actions a fini par créer le déploiement Pages avec succès. La première vérification de `https://godofcode1.github.io/poiesis-medieval/` a toutefois affiché uniquement le fond sombre ; le build publié ne dispose pas encore des variables publiques nécessaires à Supabase et aux assets visuels.
 
