@@ -6,12 +6,18 @@ L’audit de préparation a confirmé que le fichier local `.project-config.json
 
 ## GitHub Pages
 
-Le dépôt public et GitHub Pages sont déjà créés. Dans **Settings → Secrets and variables → Actions → Variables**, ajoutez `VITE_SUPABASE_URL` et `VITE_SUPABASE_PUBLISHABLE_KEY` ; `VITE_ASSET_ORIGIN` est facultative. GitHub Actions construit le site avec un préfixe adapté au nom du dépôt et le publie à l’adresse `https://godofcode1.github.io/poiesis-medieval/`.
+Le dépôt public est [godofcode1/poiesis](https://github.com/godofcode1/poiesis) et GitHub Pages est publié à `https://godofcode1.github.io/poiesis/`. Dans **Settings → Secrets and variables → Actions → Variables**, conservez `VITE_SUPABASE_URL` et `VITE_SUPABASE_PUBLISHABLE_KEY` ; `VITE_ASSET_ORIGIN` est facultative. GitHub Actions calcule le préfixe à partir du nom courant du dépôt, ce qui produit automatiquement la base `/poiesis/`.
 
 ## Netlify
 
-Le site Netlify est publié à `https://poiesis-medieval.netlify.app/`. Le fichier `netlify.toml` fixe la commande `pnpm build:static`, le dossier `dist/public` et la réécriture SPA. Dans **Site configuration → Environment variables**, créez `VITE_SUPABASE_URL` et `VITE_SUPABASE_PUBLISHABLE_KEY`, puis redéployez le site. `VITE_ASSET_ORIGIN` est facultative, car les assets sont déjà servis par `https://poiesis-assets.netlify.app`.
+Le site Netlify principal est publié à `https://poiesis-art-club.netlify.app/`. Le nom court exact `poiesis.netlify.app` était déjà attribué ; `poiesis-art-club` est donc le nom de repli validé par le propriétaire. Le fichier `netlify.toml` fixe la commande `pnpm build:static`, le dossier `dist/public` et la réécriture SPA. Dans **Site configuration → Environment variables**, conservez `VITE_SUPABASE_URL` et `VITE_SUPABASE_PUBLISHABLE_KEY`, puis redéployez le site. `VITE_ASSET_ORIGIN` est facultative, car les visuels restent servis par `https://poiesis-assets.netlify.app`.
 
-## Après l’obtention des URLs publiques
+## URLs d’authentification de production
 
-Ajoutez dans Supabase Auth → URL Configuration les quatre destinations suivantes : `https://godofcode1.github.io/poiesis-medieval/echoes`, `https://godofcode1.github.io/poiesis-medieval/email-confirmed`, `https://poiesis-medieval.netlify.app/echoes` et `https://poiesis-medieval.netlify.app/email-confirmed`. Dans Google Auth Platform, ajoutez les deux origines sans chemin à **Authorized JavaScript origins**, gardez le callback Supabase inchangé, puis mettez à jour les liens de page d’accueil, confidentialité et conditions du branding avec les URLs de production. Ces étapes sont nécessaires pour que Google OAuth et la confirmation e-mail reviennent vers le bon domaine.
+Supabase Auth autorise les quatre destinations suivantes : `https://godofcode1.github.io/poiesis/echoes`, `https://godofcode1.github.io/poiesis/email-confirmed`, `https://poiesis-art-club.netlify.app/echoes` et `https://poiesis-art-club.netlify.app/email-confirmed`. L’URL de site par défaut est `https://poiesis-art-club.netlify.app`.
+
+Dans Google Auth Platform, les origines JavaScript `https://godofcode1.github.io` et `https://poiesis-art-club.netlify.app` sont enregistrées, et les liens de branding d’accueil, confidentialité et conditions visent ce dernier hôte. Le callback reste exclusivement `https://qllpnswtlmlftlxieohs.supabase.co/auth/v1/callback`. Les anciennes URL restent temporairement configurées pour éviter d’interrompre les liens ou sessions déjà distribués ; elles pourront être retirées après une période de validation.
+
+## Limite d’identifiants internes
+
+Le répertoire de travail local `/home/ubuntu/poiesis-medieval` et certains identifiants techniques internes conservent l’ancien suffixe. Ils ne sont pas publics, ne déterminent ni le nom du dépôt ni les URL de déploiement, et ne doivent pas être renommés manuellement sans capacité de migration dédiée.

@@ -1,5 +1,15 @@
 # Mise à jour du portail Poiesis
 
+- [ ] Renommer entièrement le projet en « Poiesis » : identité affichée, métadonnées, dépôt GitHub, GitHub Pages, site Netlify et redirections OAuth associées.
+- [x] Actualiser les références opérationnelles de déploiement et OAuth vers les nouvelles URL Poiesis, en documentant les identifiants internes non renommables.
+- [x] Renommer le site Netlify principal et récupérer sa nouvelle URL publique avec le nom de repli autorisé `poiesis-art-club`.
+- [x] Choisir un nom Netlify disponible contenant uniquement « poiesis », car `poiesis.netlify.app` est déjà attribué.
+- [x] Renommer le site Netlify principal en `poiesis-art-club`, conformément au choix autorisé du propriétaire.
+
+Le 27 août 2026, le site principal Netlify a été renommé en `poiesis-art-club`. Sa nouvelle URL publique est `https://poiesis-art-club.netlify.app/`; son identifiant technique de site demeure inchangé.
+
+Supabase utilise désormais `https://poiesis-art-club.netlify.app` comme URL de site par défaut. Les retours de production `/echoes` et `/email-confirmed` sont enregistrés pour cette URL Netlify ainsi que pour `https://godofcode1.github.io/poiesis/`; les anciennes destinations restent provisoirement disponibles pendant la validation finale.
+
 ## Inscription vérifiée et e-mail fiable
 
 - [x] Conserver la confirmation e-mail obligatoire afin de refuser les adresses non vérifiées.
@@ -48,7 +58,7 @@ Avec l’autorisation explicite du propriétaire, l’URL Supabase et la clé de
 
 Les destinations de production `/echoes` et `/email-confirmed` sont maintenant enregistrées dans Supabase Auth pour Netlify et GitHub Pages. Les deux origines publiques sont confirmées dans Google Auth Platform ; Netlify porte également les liens de branding (`/`, `/privacy`, `/terms`).
 
-Google Auth Platform enregistre désormais les liens de branding Netlify (`/`, `/privacy`, `/terms`), le domaine `poiesis-medieval.netlify.app` et son origine JavaScript OAuth. Le callback Supabase conserve l’URI `https://qllpnswtlmlftlxieohs.supabase.co/auth/v1/callback`.
+Google Auth Platform enregistre désormais les liens de branding Netlify (`/`, `/privacy`, `/terms`), le domaine `poiesis-art-club.netlify.app` et son origine JavaScript OAuth. Le callback Supabase conserve l’URI `https://qllpnswtlmlftlxieohs.supabase.co/auth/v1/callback`; l’ancien domaine reste inscrit temporairement afin de ne pas interrompre les sessions ou liens déjà diffusés.
 
 Le 27 août 2026, GitHub Pages a été reconstruit avec les deux variables Supabase publiques. Son bouton Google ouvre le sélecteur de compte avec le callback Supabase réel et le retour `https://godofcode1.github.io/poiesis-medieval/echoes`, tandis que les liens de confidentialité et de conditions Google pointent désormais vers Netlify. Aucun compte n’a été choisi durant cette vérification.
 

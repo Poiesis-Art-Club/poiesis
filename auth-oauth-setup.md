@@ -1,16 +1,16 @@
 # Poiesis — configuration Google OAuth
 
-## État au 26 août 2026
+## État au 27 août 2026
 
 Google OAuth est configuré pour le projet Cloud existant `notre-fil-rouge-9d6fa`. Le client Web autorise l’origine de prévisualisation Poiesis et redirige vers le callback Supabase. Les identifiants du client sont enregistrés uniquement dans Google Cloud et dans les réglages du fournisseur Google de Supabase ; aucun secret OAuth ne doit être stocké dans ce dépôt.
 
 Dans Supabase, le fournisseur Google est activé. La confirmation e-mail des comptes e-mail + mot de passe reste activée. La liste de redirections autorisées comprend `/email-confirmed` et `/echoes` sur l’URL de prévisualisation actuelle.
 
-Les pages publiques suivantes ont été ajoutées au branding Google OAuth et vérifiées en bureau et mobile : `/home`, `/privacy` et `/terms`. Leur adresse de prévisualisation devra être remplacée par le domaine public définitif de Poiesis dès qu’il sera attribué.
+Les pages publiques suivantes sont présentes dans le branding Google OAuth : accueil, confidentialité et conditions. Elles pointent désormais vers `https://poiesis-art-club.netlify.app/`, `https://poiesis-art-club.netlify.app/privacy` et `https://poiesis-art-club.netlify.app/terms`.
 
-## Limite restante avant ouverture générale
+## Statut d’ouverture générale
 
-L’application Google Auth est publiée en **production** depuis Google Auth Platform > Audience : les membres disposant d’un compte Google peuvent donc employer le bouton de connexion. Google indique que l’application reste « non validée » tant qu’aucune validation externe n’est demandée ; aucun niveau d’accès sensible ou restreint n’est utilisé. Il reste à tester une authentification réelle de bout en bout, puis à remplacer les URLs de prévisualisation par le domaine public Poiesis dès qu’il existe.
+L’application Google Auth est publiée en **production** depuis Google Auth Platform > Audience : les membres disposant d’un compte Google peuvent donc employer le bouton de connexion. Google indique que l’application reste « non validée » tant qu’aucune validation externe n’est demandée ; aucun niveau d’accès sensible ou restreint n’est utilisé. Les URL publiques de Poiesis sont à présent enregistrées et le dernier contrôle doit seulement confirmer les parcours complets sur les nouvelles publications.
 
 ## Validation réelle
 
@@ -30,9 +30,9 @@ Le logo officiel Poiesis a été importé et enregistré dans Google Auth Platfo
 
 ## Publication Netlify et GitHub Pages
 
-Les retours de production Netlify et GitHub Pages sont maintenant enregistrés dans Supabase Auth pour les routes `/echoes` et `/email-confirmed`. Les deux hôtes publics sont déclarés dans le client Google : `https://poiesis-medieval.netlify.app` et `https://godofcode1.github.io`. Le domaine Netlify porte les pages de branding (`/`, `/privacy`, `/terms`). Le callback Google reste exclusivement le callback Supabase officiel ; aucun secret Google ou Supabase n’est présent dans le dépôt.
+Les retours de production Netlify et GitHub Pages sont enregistrés dans Supabase Auth pour les routes `/echoes` et `/email-confirmed` : `https://poiesis-art-club.netlify.app` et `https://godofcode1.github.io/poiesis/`. Les deux origines publiques sont déclarées dans le client Google : `https://poiesis-art-club.netlify.app` et `https://godofcode1.github.io`. Le domaine Netlify porte les pages de branding (`/`, `/privacy`, `/terms`). Le callback Google reste exclusivement le callback Supabase officiel ; aucun secret Google ou Supabase n’est présent dans le dépôt.
 
-L’origine GitHub Pages est déclarée explicitement même si le callback est traité par Supabase : cela rend la configuration du client cohérente avec les deux applications web publiques qui initient le flux. Les builds Netlify et GitHub Pages intègrent chacun les deux variables Supabase publiques. Leurs boutons Google atteignent le sélecteur de compte avec le callback Supabase réel et la route Échos propre à chaque hôte. Aucun compte n’a été sélectionné lors des dernières vérifications.
+L’origine GitHub Pages est déclarée explicitement même si le callback est traité par Supabase : cela rend la configuration du client cohérente avec les deux applications web publiques qui initient le flux. Les builds Netlify et GitHub Pages intègrent chacun les deux variables Supabase publiques. Leurs boutons Google atteignent le sélecteur de compte avec le callback Supabase réel et la route Échos propre à chaque hôte. Les anciennes URL restent provisoirement déclarées pour préserver les liens et sessions existants pendant la migration.
 
 ## Sources officielles
 
