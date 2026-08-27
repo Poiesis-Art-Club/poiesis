@@ -30,9 +30,9 @@ Le logo officiel Poiesis a été importé et enregistré dans Google Auth Platfo
 
 ## Publication Netlify et GitHub Pages
 
-Les retours de production Netlify et GitHub Pages sont maintenant enregistrés dans Supabase Auth pour les routes `/echoes` et `/email-confirmed`. Le domaine Netlify public est configuré dans Google Auth Platform : pages de branding (`/`, `/privacy`, `/terms`), domaine autorisé et origine JavaScript OAuth. Le callback Google reste exclusivement le callback Supabase officiel ; aucun secret Google ou Supabase n’est présent dans le dépôt.
+Les retours de production Netlify et GitHub Pages sont maintenant enregistrés dans Supabase Auth pour les routes `/echoes` et `/email-confirmed`. Les deux hôtes publics sont déclarés dans le client Google : `https://poiesis-medieval.netlify.app` et `https://godofcode1.github.io`. Le domaine Netlify porte les pages de branding (`/`, `/privacy`, `/terms`). Le callback Google reste exclusivement le callback Supabase officiel ; aucun secret Google ou Supabase n’est présent dans le dépôt.
 
-La vérification du portail Netlify a confirmé que le bouton Google arrive au sélecteur de compte avec le projet Supabase réel et le retour Netlify demandé. Aucun compte n’a été sélectionné pour cette vérification. GitHub Pages nécessite encore ses deux variables de build Supabase publiques avant que son propre bouton membre puisse sortir du mode de configuration.
+L’origine GitHub Pages est déclarée explicitement même si le callback est traité par Supabase : cela rend la configuration du client cohérente avec les deux applications web publiques qui initient le flux. Les builds Netlify et GitHub Pages intègrent chacun les deux variables Supabase publiques. Leurs boutons Google atteignent le sélecteur de compte avec le callback Supabase réel et la route Échos propre à chaque hôte. Aucun compte n’a été sélectionné lors des dernières vérifications.
 
 ## Sources officielles
 

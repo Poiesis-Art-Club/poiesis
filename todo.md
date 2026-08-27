@@ -27,11 +27,11 @@ Le 26 août 2026, la prévisualisation du portail membre a confirmé que le bout
 - [x] Contrôler l’état et les journaux du dernier déploiement GitHub Pages signalé comme échoué.
 - [x] Diagnostiquer le 404 persistant de GitHub Pages après sélection de GitHub Actions comme source.
 - [x] Corriger le rendu vide constaté sur GitHub Pages en garantissant une origine durable d’assets et un démarrage public sans crash.
-- [ ] Renseigner manuellement les variables GitHub Actions publiques, car l’intégration GitHub ne dispose pas du droit de les administrer.
+- [x] Renseigner les variables GitHub Actions publiques avec l’autorisation explicite du propriétaire.
 - [x] Ajouter les variables Supabase publiques à Netlify et redéployer afin de remplacer le domaine OAuth de repli `configuration-required.supabase.co`.
 - [x] Récupérer avec l’autorisation du propriétaire les deux valeurs Supabase publiques et les configurer directement sur Netlify.
-- [ ] Configurer les deux variables Supabase publiques dans GitHub Actions puis relancer le workflow GitHub Pages.
-- [ ] Vérifier que GitHub Pages génère une URL OAuth vers le projet Supabase réel au lieu du domaine de repli.
+- [x] Configurer les deux variables Supabase publiques dans GitHub Actions puis relancer le workflow GitHub Pages.
+- [x] Vérifier que GitHub Pages génère une URL OAuth vers le projet Supabase réel au lieu du domaine de repli.
 
 Le lien signalé pointe bien vers le domaine de sécurité de repli utilisé lorsque les variables de build Supabase sont absentes. Ce nom d’hôte ne se résout pas : il ne s’agit donc pas d’un refus de Google ni d’un problème de compte, mais de la configuration Netlify incomplète.
 
@@ -42,11 +42,19 @@ Avec l’autorisation explicite du propriétaire, l’URL Supabase et la clé de
 - [x] Pousser le favicon officiel vers GitHub Pages et redéployer Netlify, puis vérifier sa référence publique sur les deux hôtes.
 - [x] Recompiler localement le bundle Netlify avec les variables Supabase de production avant le déploiement manuel des fichiers statiques.
 - [x] Inclure une règle SPA `_redirects` dans le build statique Netlify afin que les routes membres directes comme `/login` restent accessibles après un déploiement manuel.
-- [ ] Ajouter les quatre URLs de redirection de production dans Supabase Auth et les deux origines publiques dans Google Auth Platform.
+- [x] Ajouter les quatre URLs de redirection de production dans Supabase Auth et configurer le branding ainsi que l’origine Google OAuth Netlify.
+- [x] Confirmer dans Google Auth Platform que l’origine `https://godofcode1.github.io` a été enregistrée pour le client OAuth Poiesis.
+- [x] Documenter le rôle de l’origine GitHub Pages dans le flux Supabase OAuth, puis revalider le bouton Google après confirmation.
 
-Les destinations de production `/echoes` et `/email-confirmed` sont maintenant enregistrées dans Supabase Auth pour Netlify et GitHub Pages. Il reste à ajouter les deux origines publiques et à actualiser les liens de branding dans Google Auth Platform.
+Les destinations de production `/echoes` et `/email-confirmed` sont maintenant enregistrées dans Supabase Auth pour Netlify et GitHub Pages. Les deux origines publiques sont confirmées dans Google Auth Platform ; Netlify porte également les liens de branding (`/`, `/privacy`, `/terms`).
 
 Google Auth Platform enregistre désormais les liens de branding Netlify (`/`, `/privacy`, `/terms`), le domaine `poiesis-medieval.netlify.app` et son origine JavaScript OAuth. Le callback Supabase conserve l’URI `https://qllpnswtlmlftlxieohs.supabase.co/auth/v1/callback`.
+
+Le 27 août 2026, GitHub Pages a été reconstruit avec les deux variables Supabase publiques. Son bouton Google ouvre le sélecteur de compte avec le callback Supabase réel et le retour `https://godofcode1.github.io/poiesis-medieval/echoes`, tandis que les liens de confidentialité et de conditions Google pointent désormais vers Netlify. Aucun compte n’a été choisi durant cette vérification.
+
+Après l’ajout explicite de `https://godofcode1.github.io` comme origine JavaScript du client Google, le même flux GitHub Pages a été réexécuté avec succès. Le sélecteur de compte Google est atteint sans erreur et le retour demandé reste bien la route Échos de GitHub Pages.
+
+Après harmonisation de la documentation, une dernière vérification du 27 août 2026 a confirmé le même sélecteur Google, le callback Supabase réel et la route de retour GitHub Pages. Aucun compte n’a été sélectionné pendant ce contrôle.
 
 Le 26 août 2026, GitHub Actions a fini par créer le déploiement Pages avec succès. La première vérification de `https://godofcode1.github.io/poiesis-medieval/` a toutefois affiché uniquement le fond sombre ; le build publié ne dispose pas encore des variables publiques nécessaires à Supabase et aux assets visuels.
 
