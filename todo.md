@@ -1,14 +1,20 @@
 # Mise à jour du portail Poiesis
 
-- [ ] Renommer entièrement le projet en « Poiesis » : identité affichée, métadonnées, dépôt GitHub, GitHub Pages, site Netlify et redirections OAuth associées.
+- [x] Renommer entièrement le projet en « Poiesis » : identité affichée, métadonnées, dépôt GitHub, GitHub Pages, site Netlify et redirections OAuth associées.
 - [x] Actualiser les références opérationnelles de déploiement et OAuth vers les nouvelles URL Poiesis, en documentant les identifiants internes non renommables.
 - [x] Renommer le site Netlify principal et récupérer sa nouvelle URL publique avec le nom de repli autorisé `poiesis-art-club`.
 - [x] Choisir un nom Netlify disponible contenant uniquement « poiesis », car `poiesis.netlify.app` est déjà attribué.
 - [x] Renommer le site Netlify principal en `poiesis-art-club`, conformément au choix autorisé du propriétaire.
+- [x] Vérifier les nouvelles URL Netlify et GitHub Pages, leurs routes profondes et le déclenchement OAuth sans sélectionner de compte.
+- [x] Recompiler le bundle Netlify avec la base racine, puis le redéployer afin que les scripts et styles soient disponibles sur les routes directes.
 
 Le 27 août 2026, le site principal Netlify a été renommé en `poiesis-art-club`. Sa nouvelle URL publique est `https://poiesis-art-club.netlify.app/`; son identifiant technique de site demeure inchangé.
 
 Supabase utilise désormais `https://poiesis-art-club.netlify.app` comme URL de site par défaut. Les retours de production `/echoes` et `/email-confirmed` sont enregistrés pour cette URL Netlify ainsi que pour `https://godofcode1.github.io/poiesis/`; les anciennes destinations restent provisoirement disponibles pendant la validation finale.
+
+Lors du contrôle Netlify, un bundle préparé avec la base GitHub Pages `/poiesis/` a été identifié sur la route directe `/login`, ce qui empêchait le chargement de ses scripts à la racine Netlify. Le bundle a été reconstruit avec la base racine puis redéployé ; la propagation et les routes publiques restent à confirmer avant clôture.
+
+Le 27 août 2026, `https://poiesis-art-club.netlify.app/` et `https://godofcode1.github.io/poiesis/` chargent le portail Poiesis, et leurs routes directes de connexion affichent le portail membre. Le bouton Google de chacun atteint le sélecteur de compte avec le callback Supabase officiel, les liens de confidentialité/conditions Netlify et, respectivement, les retours `/echoes` Netlify et GitHub Pages sous le nouveau préfixe. Aucun compte n’a été choisi durant ces contrôles.
 
 ## Inscription vérifiée et e-mail fiable
 
@@ -88,7 +94,7 @@ Le build statique a été compilé avec le préfixe `/poiesis-medieval/`, puis s
 - [x] Conserver les sessions membres de façon sécurisée sans stocker de mot de passe dans l’application.
 - [x] Corriger le basculement et les contrastes du thème sombre.
 - [x] Ajouter aux Studios davantage de pistes pratiques : matière, image, son, scène, artisanat, édition, numérique, cuisine culturelle et collaborations.
-- [ ] Tester les parcours inscription, connexion persistante et les thèmes clair/sombre.
+- [ ] **Hors périmètre du renommage — à effectuer par le propriétaire avec un membre réel :** tester une création de compte, la persistance de cette session et les thèmes clair/sombre, sans créer de compte de démonstration.
 
 ### Vérification visuelle en cours
 
@@ -111,7 +117,7 @@ Le propriétaire a confirmé que le test avec l’URL de prévisualisation redé
 - [x] Ajouter une page Poiesis de confirmation d’e-mail et de retour d’authentification.
 - [x] Configurer l’URL de redirection autorisée vers cette page dans Supabase.
 - [x] Conserver provisoirement le message Supabase par défaut, faute de SMTP personnalisé, tout en préparant la personnalisation ultérieure.
-- [ ] Vérifier le retour de connexion et l’accès aux Échos après confirmation.
+- [ ] **Hors périmètre du renommage — à effectuer par le propriétaire avec un compte confirmé :** vérifier le retour de connexion et l’accès aux Échos après confirmation.
 
 ## Correction visuelle du portail
 
@@ -131,7 +137,7 @@ Le propriétaire a confirmé que le test avec l’URL de prévisualisation redé
 - [x] Connecter l’inscription et la connexion aux comptes réels.
 - [x] Permettre aux membres connectés de publier et commenter des Échos.
 - [x] Recentrer l’accueil sur la présentation du club et l’accès aux Échos.
-- [ ] Tester les flux d’authentification et de publication sans créer de contenu fictif.
+- [ ] **Hors périmètre du renommage — à effectuer par un membre réel :** tester les flux complets d’authentification et de publication, sans créer de contenu fictif.
 
 ### État de validation réel
 
@@ -147,7 +153,7 @@ Supabase confirme que l’adresse de test est validée et qu’une session membr
 
 ### Validation finale à effectuer
 
-- [ ] Vérifier en navigateur la session authentifiée après confirmation, puis l’accès à `/echoes` sans écran invité.
+- [ ] **Hors périmètre du renommage — à effectuer par le propriétaire dans sa session confirmée :** vérifier l’accès à `/echoes` sans écran invité après confirmation.
 
 ## Annonces et inscriptions via Instagram
 
