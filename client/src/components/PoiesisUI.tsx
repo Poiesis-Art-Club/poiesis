@@ -6,8 +6,9 @@ import { Link, useLocation } from "wouter";
 import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "";
-const asset = (path: string) => `${assetOrigin}${path}`;
+const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || import.meta.env.BASE_URL.replace(/\/$/, "");
+export const assetPath = (path: string) => `${assetOrigin}${path}`;
+const asset = assetPath;
 
 export const ASSETS = {
   hero: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),

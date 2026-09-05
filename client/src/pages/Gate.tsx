@@ -2,11 +2,11 @@
 import { useRef, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { ArrowRight, KeyRound } from "lucide-react";
-import { ASSETS } from "@/components/PoiesisUI";
+import { ASSETS, assetPath } from "@/components/PoiesisUI";
 
-const OWNER_PAPER_TEXTURE = "/manus-storage/poiesis-owner-paper-texture_d7c7e5bf.png";
-const GOTHIC_LETTER_FRAME = "/manus-storage/poiesis-gothic-code-frame-clean_dee7cba1.png";
-const POIESIS_WORDMARK = "/manus-storage/poiesis-wordmark-owner_76e2dcf5.png";
+const OWNER_PAPER_TEXTURE = assetPath("/manus-storage/poiesis-owner-paper-texture_d7c7e5bf.png");
+const GOTHIC_LETTER_FRAME = assetPath("/manus-storage/poiesis-gothic-code-frame-clean_dee7cba1.png");
+const POIESIS_WORDMARK = assetPath("/manus-storage/poiesis-wordmark-owner_76e2dcf5.png");
 
 export default function Gate() {
   const [, setLocation] = useLocation();
