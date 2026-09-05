@@ -345,6 +345,18 @@
 }
 
 @media (max-width: 700px) {
+  .team-section {
+    padding-inline: 1rem;
+  }
+
+  .team-section__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .team-grid {
+    gap: 1rem;
+  }
+
   .team-card,
   .team-card--founder {
     min-height: 365px;
