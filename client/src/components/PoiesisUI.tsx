@@ -19,7 +19,7 @@ export const ASSETS = {
   mark: asset("/manus-storage/poiesis-mark_4fee9962.png"),
   portal: asset("/manus-storage/ambleme-alpha_75fb67b3.png"),
   archways: asset("/manus-storage/poiesis-archways_1be6c802.webp"),
-  parchment: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
+  parchment: asset("/manus-storage/poiesis-old-paper-cc0_f9815e84.webp"),
   birdvine: asset("/manus-storage/poiesis-birdvine_5a4ce253.webp"),
   hintSeal: asset("/manus-storage/hintseal-alpha_f05d7ab0.png"),
   numberPad: asset("/manus-storage/numberspad-alpha_379c0c80.png"),
