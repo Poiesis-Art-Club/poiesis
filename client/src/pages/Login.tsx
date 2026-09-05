@@ -13,11 +13,18 @@ import {
   ShieldCheck,
   UserPlus,
 } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { memberEmailConfirmationRedirect, memberGoogleAuthOptions } from "@/lib/memberAuth";
 import { ASSETS } from "@/components/PoiesisUI";
 
 type Mode = "sign-in" | "sign-up";
+
+const authUnavailableMessage = "Member sign-in is temporarily unavailable. The Supabase project configuration needs to be restored by the site administrator.";
+
+function authFailureMessage(authError: unknown) {
+  if (authError instanceof TypeError && authError.message.toLowerCase().includes("fetch")) return authUnavailableMessage;
+  return authError instanceof Error ? authError.message : "Member sign-in failed. Please try again.";
+}
 
 export default function Login() {
   const [mode, setMode] = useState<Mode>("sign-in");
@@ -48,21 +55,29 @@ export default function Login() {
       setError("The two passwords do not match.");
       return;
     }
+    if (!isSupabaseConfigured) {
+      setError(authUnavailableMessage);
+      return;
+    }
 
     setBusy(true);
-    if (mode === "sign-in") {
-      const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
-      if (authError) setError(authError.message);
-      else setMessage("Your member session is open. You can now enter Echoes.");
-    } else {
-      const { data, error: authError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: { emailRedirectTo: memberEmailConfirmationRedirect(window.location.origin, appBase) },
-      });
-      if (authError) setError(authError.message);
-      else if (data.session) setMessage("Your member session is open. Welcome to Poiesis.");
-      else setMessage("Your account is created. Confirm your email once, then return with this password whenever you like.");
+    try {
+      if (mode === "sign-in") {
+        const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
+        if (authError) setError(authFailureMessage(authError));
+        else setMessage("Your member session is open. You can now enter Echoes.");
+      } else {
+        const { data, error: authError } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: memberEmailConfirmationRedirect(window.location.origin, appBase) },
+        });
+        if (authError) setError(authFailureMessage(authError));
+        else if (data.session) setMessage("Your member session is open. Welcome to Poiesis.");
+        else setMessage("Your account is created. Confirm your email once, then return with this password whenever you like.");
+      }
+    } catch (authError) {
+      setError(authFailureMessage(authError));
     }
     setBusy(false);
   };
@@ -70,13 +85,21 @@ export default function Login() {
   const signInWithGoogle = async () => {
     setError("");
     setMessage("");
+    if (!isSupabaseConfigured) {
+      setError(authUnavailableMessage);
+      return;
+    }
     setBusy(true);
-    const { error: authError } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: memberGoogleAuthOptions(window.location.origin, appBase),
-    });
-    if (authError) setError(authError.message);
-    else setMessage("Opening Google’s secure sign-in…");
+    try {
+      const { error: authError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: memberGoogleAuthOptions(window.location.origin, appBase),
+      });
+      if (authError) setError(authFailureMessage(authError));
+      else setMessage("Opening Google’s secure sign-in…");
+    } catch (authError) {
+      setError(authFailureMessage(authError));
+    }
     setBusy(false);
   };
 

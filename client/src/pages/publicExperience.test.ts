@@ -3,8 +3,8 @@ import { aboutManifesto, teamMembers } from "./About";
 import { volunteerRoles } from "./Join";
 
 describe("public Poiesis experience", () => {
-  it("presents the eight supplied team members with English roles and portrait assets", () => {
-    expect(teamMembers).toHaveLength(8);
+  it("presents the nine supplied team members with English roles and portrait assets", () => {
+    expect(teamMembers).toHaveLength(9);
     expect(teamMembers.map(member => member.role)).toEqual([
       "Founder",
       "Video Editor",
@@ -14,6 +14,7 @@ describe("public Poiesis experience", () => {
       "Illustrator",
       "Poiesis Member",
       "Poiesis Member",
+      "Website Creator",
     ]);
     expect(teamMembers.every(member => member.image.startsWith("/manus-storage/"))).toBe(true);
     expect(teamMembers.every(member => member.description.length > 30)).toBe(true);
