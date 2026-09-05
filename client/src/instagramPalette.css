@@ -423,10 +423,6 @@
     gap: 1rem;
   }
 
-  .team-page .team-grid {
-    grid-template-columns: 1fr;
-  }
-
   .team-card,
   .team-card--founder {
     min-height: 365px;
@@ -459,29 +455,6 @@
     width: calc(100% - 20px);
   }
 
-  .team-page .team-card,
-  .team-page .team-card--founder {
-    display: block;
-    min-height: auto;
-  }
-
-  .team-page .team-card__portrait {
-    min-height: 330px;
-  }
-
-  .team-page .team-card__portrait picture,
-  .team-page .team-card__portrait img {
-    height: 340px;
-    max-width: 100%;
-  }
-
-  .team-page .team-card__body,
-  .team-page .team-card--founder .team-card__body {
-    min-height: 0;
-    margin: -18px 10px 14px;
-    width: calc(100% - 20px);
-    padding: 1.2rem 1.1rem 1rem;
-  }
 }
 
 /* Entry portal: owner-supplied historic paper and Gothic code frame, unedited. */
