@@ -6,9 +6,8 @@ import { Link, useLocation } from "wouter";
 import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "https://poiesis-assets.netlify.app";
+const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "";
 const asset = (path: string) => `${assetOrigin}${path}`;
-const emptyDecorativeAsset = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
 export const ASSETS = {
   hero: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
@@ -18,11 +17,9 @@ export const ASSETS = {
   workshop: asset("/manus-storage/poiesis-workshop-stilllife_56216ad7.jpg"),
   mark: asset("/manus-storage/poiesis-mark_4fee9962.png"),
   portal: asset("/manus-storage/ambleme-alpha_75fb67b3.png"),
-  // The decorative WebPs were never added to the durable asset host. Keep the
-  // layout stable without making 404 requests until an approved asset release.
-  archways: emptyDecorativeAsset,
+  archways: asset("/manus-storage/poiesis-archways_1be6c802.webp"),
   parchment: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
-  birdvine: emptyDecorativeAsset,
+  birdvine: asset("/manus-storage/poiesis-birdvine_5a4ce253.webp"),
   hintSeal: asset("/manus-storage/hintseal-alpha_f05d7ab0.png"),
   numberPad: asset("/manus-storage/numberspad-alpha_379c0c80.png"),
   owl: asset("/manus-storage/owl-alpha_86ebde45.png"),
