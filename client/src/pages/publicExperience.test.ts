@@ -10,11 +10,11 @@ describe("public Poiesis experience", () => {
       "Video Editor",
       "Logistics Coordinator",
       "Graphic Designer",
+      "Website Creator",
       "Photographer",
       "Illustrator",
       "Poiesis Member",
       "Poiesis Member",
-      "Website Creator",
     ]);
     expect(teamMembers.every(member => member.image.startsWith("/manus-storage/"))).toBe(true);
     expect(teamMembers.every(member => member.description.length > 30)).toBe(true);

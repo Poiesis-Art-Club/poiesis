@@ -265,6 +265,85 @@
   border-color: rgba(69, 95, 69, .32);
 }
 
+.echo-steps {
+  display: grid;
+  gap: .65rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: echo-step;
+}
+
+.echo-steps li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: .45rem;
+  counter-increment: echo-step;
+  color: #65503a;
+  font-size: .78rem;
+  line-height: 1.4;
+}
+
+.echo-steps li::before {
+  content: counter(echo-step, decimal-leading-zero);
+  color: #a64233;
+  font-weight: 800;
+}
+
+.echo-steps strong,
+.echo-steps span {
+  grid-column: 2;
+}
+
+.echo-steps strong {
+  color: #4d3527;
+}
+
+.echo-steps span {
+  margin-top: -.25rem;
+}
+
+@media (max-width: 560px) {
+  .echo-archive {
+    padding: 3.25rem 1rem 4rem;
+  }
+
+  .echo-header {
+    gap: 1.25rem;
+  }
+
+  .echo-header h1 {
+    font-size: 3rem;
+    line-height: .95;
+  }
+
+  .echo-header > div > p:not(.folio-label) {
+    line-height: 1.55;
+  }
+
+  .echo-compose {
+    gap: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .echo-compose h2 {
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+
+  .echo-compose form {
+    gap: .8rem;
+  }
+
+  .echo-compose textarea {
+    min-height: 7rem;
+  }
+
+  .echo-list {
+    margin-top: 2.25rem;
+  }
+}
+
 @media (max-width: 700px) {
   .team-card,
   .team-card--founder {
