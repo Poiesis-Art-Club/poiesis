@@ -14,7 +14,7 @@ export const ASSETS = {
   hero: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
   romanDeLaRose: "/manus-storage/poiesis-roman-de-la-rose-cc0_ccf38295.jpg",
   seal: asset("/manus-storage/poiesis-seal-sculpture_5d2e74bf.png"),
-  gallery: asset("/manus-storage/poiesis-arthurian-manuscript-public-domain_46f4111c.jpg"),
+  gallery: asset("/manus-storage/poiesis-gallery-vision_137feff4.jpg"),
   workshop: asset("/manus-storage/poiesis-workshop-stilllife_56216ad7.jpg"),
   mark: asset("/manus-storage/poiesis-mark_4fee9962.png"),
   portal: asset("/manus-storage/ambleme-alpha_75fb67b3.png"),
