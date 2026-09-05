@@ -1,5 +1,5 @@
 /** About Poiesis: a clear club introduction and the people who make the house possible. */
-import { BookOpenText, CalendarDays, Camera, Cat, CookingPot, Dumbbell, Gamepad2, Guitar, HeartHandshake, Landmark, Leaf, Map, Mountain, Music2, Palette, PencilLine, Search, UsersRound } from "lucide-react";
+import { BookOpenText, CalendarDays, Camera, Cat, CookingPot, Dumbbell, Gamepad2, Guitar, HeartHandshake, Landmark, Leaf, Map, Mountain, Music2, Palette, PencilLine, Search } from "lucide-react";
 import { ASSETS, assetPath, InkButton, SiteShell } from "@/components/PoiesisUI";
 
 const values = [
@@ -143,13 +143,10 @@ export default function About() {
       <aside><Landmark size={23}/><p>Built through the energy of its members, not around a single discipline.</p><span>Poiesis · 01</span></aside>
     </section>
     <section className="about-values"><header><p className="folio-label">What we make space for</p><h2>Art, culture<br />and care.</h2></header><div>{values.map(({icon: Icon, title, text}, index) => <article key={title}><span>0{index + 1}</span><Icon size={21}/><h3>{title}</h3><p>{text}</p></article>)}</div></section>
-    <section className="team-section" id="team"><header className="team-section__heading"><div><p className="folio-label">Meet the team</p><h2>Keeping the house<br />in motion.</h2></div><p>Makers, organisers and storytellers with different ways of seeing.</p></header>
-      <div className="team-grid" aria-label="The full Poiesis team">{teamMembers.map((member, index) => <TeamCard member={member} index={index} key={member.name} />)}</div>
-      <div className="team-section__footer"><UsersRound size={21}/><p>Want to help the collective grow?</p><InkButton href="/join" tone="ink">Join the house</InkButton></div>
-    </section>
+    <section className="about-team-route"><p className="folio-label">The people behind the house</p><h2>Meet the team.</h2><p>Makers, organisers and storytellers with different ways of seeing.</p><InkButton href="/team">Open the team page</InkButton></section>
   </SiteShell>;
 }
 
-function TeamCard({ member, index }: { member: (typeof teamMembers)[number]; index: number }) {
+export function TeamCard({ member, index }: { member: (typeof teamMembers)[number]; index: number }) {
   return <article className={`team-card ${index === 0 ? "team-card--founder" : ""}`}><div className="team-card__portrait"><span>{String(index + 1).padStart(2, "0")}</span><div className="team-card__motifs" aria-label={`${member.name}'s interests`}>{member.motifs.map(({ icon: Icon, label }) => <span key={label}><Icon size={12} aria-hidden="true" /><small>{label}</small></span>)}</div><picture><source srcSet={member.optimizedImage} type="image/webp" /><img src={member.image} width={member.portraitWidth} height={760} alt={`${member.name}, ${member.role} at Poiesis`} loading="lazy" decoding="async" /></picture></div><div className="team-card__body"><div className="team-card__artifact"><img src={member.motifImage} alt={member.motifImageAlt} loading="lazy" decoding="async" width="160" height="120" /></div><p className="team-card__role">{member.role}</p><h3>{member.name}</h3><p>{member.description}</p><div className="team-card__tags">{member.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>;
 }

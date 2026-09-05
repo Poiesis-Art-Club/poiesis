@@ -15,6 +15,7 @@ import NightGallery from "@/pages/NightGallery";
 import NotFound from "@/pages/NotFound";
 import { Privacy, Terms } from "@/pages/Policies";
 import SubmitEcho from "@/pages/SubmitEcho";
+import Team from "@/pages/Team";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -26,6 +27,7 @@ function Router() {
     <Route path="/login" component={Login} />
     <Route path="/home" component={Home} />
     <Route path="/about" component={About} />
+    <Route path="/team" component={Team} />
     <Route path="/join" component={Join} />
     <Route path="/create" component={Create} />
     <Route path="/echoes" component={Echoes} />
