@@ -1,5 +1,78 @@
 # Mise à jour du portail Poiesis
 
+- [x] Diagnostiquer et corriger le chargement du logo officiel sur les pages publiques, en remplaçant la ressource WebP absente par le PNG officiel servi durablement par l’hôte d’assets.
+- [x] Analyser les publications Instagram officielles de Poiesis et ajuster la palette du site à leurs teintes dominantes.
+- [x] Connecter le navigateur personnel du propriétaire à Instagram pour analyser le profil Poiesis à partir de sa session réelle.
+- [x] Attendre l’accès au profil Instagram officiel avant de modifier la palette, sans substituer de référence de couleur non approuvée.
+- [x] Analyser la publication au ciel et le carrousel « Meet the team » pour reprendre leur disposition de portraits et leur rythme graphique.
+- [x] Recomposer le registre équipe avec le vocabulaire Instagram : ciel bleu, feuillet ivoire, ruban rose et portrait en débordement.
+- [x] Introduire les accents vert mousse, bleu ciel et rose poudré observés sur Instagram sans perdre les repères corail et violet de Poiesis.
+- [x] Vérifier le logo, les contrastes et la nouvelle palette sur desktop et mobile, sans push ni publication externe.
+- [ ] Publier les huit portraits et les décorations optionnelles sur l’hôte durable uniquement après une nouvelle autorisation explicite du propriétaire ; aucun déploiement d’assets ne sera lancé avant.
+- [x] Retirer la décoration de livre générée du portail à la demande du propriétaire, plutôt que d’en ajouter une nouvelle à cet emplacement.
+- [x] Remplacer le fond visuel généré de la page Home par l’enluminure médiévale réelle du Roman de la Rose, documentée comme réutilisable pour la prévisualisation locale.
+- [x] Retirer les décorations roses/lilas inexplicables de la page Home afin de garder une composition manuscrite cohérente.
+- [x] Ajouter à chacune des huit cartes équipe un petit visuel réel relié à un centre d’intérêt documenté, recherché à partir de Pinterest puis retenu uniquement si sa réutilisation est permise. Les motifs locaux utilisent des candidats présentés comme domaine public par PICRYL ; Hiba et Ines partagent une gravure de plume adaptée à leurs intérêts documentés.
+- [x] Finaliser l’audit de sécurité local et non destructif avec des résultats vérifiables pour dépendances, secrets, authentification, contrôles d’accès, entrées, build et configuration HTTP.
+- [x] Exécuter des tests de résilience destructifs mais isolés sur une copie locale, sans altérer les données, comptes ou services externes réels.
+- [x] Restreindre les liens externes des Échos aux protocoles HTTP et HTTPS lors de l’enregistrement comme lors de l’affichage.
+- [x] Préparer des en-têtes de sécurité de production pour le futur hébergement, sans déployer ni modifier la prévisualisation locale.
+- [x] Exécuter un scan borné et documenté des motifs de secrets dans les sources et builds pertinents, sans afficher de valeur sensible.
+- [x] Exécuter une vérification de dépendances sans atteindre les services applicatifs ni modifier le verrouillage des paquets.
+- [x] Mettre à niveau les dépendances signalées par l’audit après examen d’une stratégie de verrouillage minimale et revalidation complète du projet actif. Axios, Drizzle ORM, nanoid, lodash, lodash-es, streamdown, path-to-regexp, Express et mdast-util-to-hast sont désormais sur des versions corrigées ; l’audit final de production indique 0 avis élevé, 0 critique et 0 faible, avec 1 avis modéré documenté.
+- [x] Scanner les artefacts de build statique pour les motifs de secrets privilégiés avant de clôturer l’audit.
+- [x] Consolider les preuves de l’audit dans un relevé local, puis relire le rapport et le suivi avant le prochain point de contrôle.
+- [x] Retirer l’illustration de manuscrit ajoutée au centre du portail, car le propriétaire indique qu’elle n’appartient pas à cet emplacement.
+- [x] Remplacer le focus rose/rouge des sept lettres du portail par un repère doré discret et accessible.
+- [x] Conserver un fond de papier manuscrit au portail d’entrée et ne pas employer d’image générée.
+- [x] Encadrer les sept lettres du code d’accès avec l’ornement gothique fourni par le propriétaire, sans génération d’image.
+- [x] Vérifier le portail avec ce nouvel ornement sur desktop et mobile, uniquement dans la prévisualisation locale.
+- [x] Vérifier et restaurer intégralement le texte About fourni par le propriétaire, avec ses retours à la ligne, ses espaces et sa signature finale « POIESIS ».
+- [x] Remplacer le manifeste About par la version longue fournie le 28 août 2026, sans raccourcir, traduire ni modifier son rythme de lignes.
+- [x] Ajouter à chaque carte équipe des ornements visuels issus uniquement des intérêts documentés de son membre, sans image générée ni biographie inventée.
+- [x] Vérifier sur desktop et mobile la lisibilité du manifeste et des huit cartes décorées, uniquement en local.
+- [x] Remplacer l’appellation générique « prompt » de l’espace Studios par une invitation créative claire et utile au club.
+- [x] Retirer uniquement le fond noir du cadre gothique fourni afin d’obtenir un ornement transparent, sans modifier sa structure ni générer une nouvelle illustration.
+- [x] Placer sept cadres gothiques identiques, chacun autour d’une lettre de POIESIS dans le portail d’entrée.
+- [x] Vérifier localement le portail à sept cadres sur desktop et mobile, sans publication externe.
+- [x] Intégrer le mot-symbole POIESIS fourni par le propriétaire comme titre principal du portail, sans recréer ni générer ce visuel.
+- [x] Corriger le damier résiduel du cadre gothique afin que les sept ornements soient réellement transparents sur le papier.
+- [x] Utiliser la texture de papier fournie par le propriétaire comme fond discret du portail et ajuster sa teinte pour préserver la lisibilité.
+- [x] Réduire encore la hauteur et les espaces du portail afin que l’interaction complète tienne dans une seule vue nette.
+- [x] Restaurer les deux sceaux d’action du portail dans la composition compacte, visibles sur desktop et mobile.
+- [x] Réduire les sept cadres de lettres et resserrer le portail afin que son titre, son code et ses actions tiennent dans une seule vue desktop et mobile.
+- [x] Supprimer les références résiduelles à la texture de papier indisponible afin que les builds locaux n’émettent plus d’avertissement d’asset manquant.
+- [x] Utiliser la texture de papier fournie par le propriétaire comme fond discret du portail et ajuster sa teinte pour préserver la lisibilité.
+- [x] Réduire encore la hauteur et les espaces du portail afin que l’interaction complète tienne dans une seule vue nette.
+
+- [x] Afficher les huit membres de l’équipe ensemble dans une seule composition, sans section de profils repliée.
+- [x] Simplifier la structure visuelle des pages publiques pour rendre l’ensemble plus cohérent et moins dense.
+- [x] Rechercher, préparer et intégrer un nombre restreint de textures archivales ou de papier compatibles avec la licence et l’identité Poiesis.
+- [x] Vérifier sur desktop et mobile la cohérence, la lisibilité et le poids des textures ajoutées, sans publication externe.
+- [x] Intégrer le texte fondateur fourni sur la bohème, Montmartre et la place donnée aux idées comme cœur éditorial de la page About.
+- [x] Préserver mot pour mot le texte About fourni par le propriétaire, sans le raccourcir ni le reformuler.
+
+- [x] Extraire une palette cohérente de teintes issues du logo officiel Poiesis et l’appliquer aux surfaces, bordures et appels à l’action.
+- [x] Simplifier la hiérarchie et les détails visuels des pages publiques pour une présentation plus nette et prête à diffuser.
+- [x] Retirer le contrôle clair/sombre de la navigation et stabiliser une direction visuelle unique.
+- [x] Vérifier la finition de palette et la lisibilité sur desktop et mobile, sans push ni publication externe.
+- [x] Optimiser le chargement des portraits et images décoratives pour une publication durable ; les sources récentes restent volontairement locales jusqu’à autorisation d’un déploiement d’assets. Les portraits privilégient WebP via `<picture>`, les images sont lazy-loadées et décodées en asynchrone, les dimensions sont explicites et les vignettes historiques restent légères dans le stockage de prévisualisation.
+- [x] Recomposer la première page avec des superpositions plus propres, des bords de papier découpé et des textures de parchemin froissé mesurées.
+- [x] Réduire la longueur des pages publiques, raccourcir les textes et limiter les sections visibles sur desktop et mobile.
+- [x] Mettre en place une divulgation progressive pour les profils d’équipe et les détails bénévolat afin de préserver l’information sans allonger le défilement.
+- [x] Optimiser ou documenter le chargement des visuels décoratifs actifs de la première page, en particulier le parchemin, les arcades, les vignes et le logo.
+- [x] Replier les détails de rôles bénévolat derrière une révélation explicite afin de raccourcir encore la page Join Us.
+- [x] Restaurer l’emblème officiel figuratif de Poiesis dans la navigation et les sceaux après la détection d’une variante abrégée erronée lors du contrôle mobile.
+
+- [x] Restructurer l’interface publique, la navigation et les appels à l’action pour rendre les parcours du club plus intuitifs.
+- [x] Créer une page « Get to Know Us » avec une introduction concrète de Poiesis et une présentation accessible de l’équipe.
+- [x] Préparer et intégrer les portraits PNG de l’équipe, en reprenant les rôles indiqués dans les autres visuels fournis.
+- [x] Convertir les deux portraits source WebP de Hiba et Ines en PNG, puis remplacer leurs références afin que les huit portraits de l’équipe utilisent le format demandé.
+- [x] Ajouter à Join Us un parcours clair de bénévolat avec des rôles possibles et un appel à l’action vers Instagram.
+- [x] Rédiger en anglais les rôles, présentations de l’équipe, libellés de navigation et appels à l’action ajoutés par cette refonte.
+- [x] Vérifier la refonte et la page équipe sur desktop et mobile, avec tests automatisés ciblés.
+- [x] Conserver les changements uniquement dans l’espace de travail et dans un point de contrôle local, sans push ni publication GitHub jusqu’à autorisation expresse du propriétaire. Aucun push ni déploiement n’a été lancé pour cette refonte.
+
 - [x] Renommer entièrement le projet en « Poiesis » : identité affichée, métadonnées, dépôt GitHub, GitHub Pages, site Netlify et redirections OAuth associées.
 - [x] Actualiser les références opérationnelles de déploiement et OAuth vers les nouvelles URL Poiesis, en documentant les identifiants internes non renommables.
 - [x] Renommer le site Netlify principal et récupérer sa nouvelle URL publique avec le nom de repli autorisé `poiesis-art-club`.
@@ -15,6 +88,8 @@ Supabase utilise désormais `https://poiesis-art-club.netlify.app` comme URL de 
 Lors du contrôle Netlify, un bundle préparé avec la base GitHub Pages `/poiesis/` a été identifié sur la route directe `/login`, ce qui empêchait le chargement de ses scripts à la racine Netlify. Le bundle a été reconstruit avec la base racine puis redéployé ; la propagation et les routes publiques restent à confirmer avant clôture.
 
 Le 27 août 2026, `https://poiesis-art-club.netlify.app/` et `https://godofcode1.github.io/poiesis/` chargent le portail Poiesis, et leurs routes directes de connexion affichent le portail membre. Le bouton Google de chacun atteint le sélecteur de compte avec le callback Supabase officiel, les liens de confidentialité/conditions Netlify et, respectivement, les retours `/echoes` Netlify et GitHub Pages sous le nouveau préfixe. Aucun compte n’a été choisi durant ces contrôles.
+
+Le même jour, la session Google réelle du propriétaire est restée active sur `https://poiesis-art-club.netlify.app/login`, puis a donné accès à `https://poiesis-art-club.netlify.app/echoes`. L’archive a affiché l’adresse membre, le formulaire de contribution et l’état vide authentique, sans créer de publication. Le réglage de thème a aussi basculé entre les surfaces violettes et le feuillet clair dans cette session.
 
 ## Inscription vérifiée et e-mail fiable
 
@@ -94,7 +169,8 @@ Le build statique a été compilé avec le préfixe `/poiesis-medieval/`, puis s
 - [x] Conserver les sessions membres de façon sécurisée sans stocker de mot de passe dans l’application.
 - [x] Corriger le basculement et les contrastes du thème sombre.
 - [x] Ajouter aux Studios davantage de pistes pratiques : matière, image, son, scène, artisanat, édition, numérique, cuisine culturelle et collaborations.
-- [ ] **Hors périmètre du renommage — à effectuer par le propriétaire avec un membre réel :** tester une création de compte, la persistance de cette session et les thèmes clair/sombre, sans créer de compte de démonstration.
+- [x] Vérifier avec une session membre réelle la persistance de connexion et le basculement clair/sombre, sans créer de contenu de démonstration.
+- [x] **Décision du propriétaire — essai différé :** ne pas créer de compte e-mail + mot de passe ni confirmer d’adresse supplémentaire ; ce contrôle facultatif sera réalisé ultérieurement avec une adresse réellement disponible, sans compte de démonstration.
 
 ### Vérification visuelle en cours
 
@@ -117,7 +193,7 @@ Le propriétaire a confirmé que le test avec l’URL de prévisualisation redé
 - [x] Ajouter une page Poiesis de confirmation d’e-mail et de retour d’authentification.
 - [x] Configurer l’URL de redirection autorisée vers cette page dans Supabase.
 - [x] Conserver provisoirement le message Supabase par défaut, faute de SMTP personnalisé, tout en préparant la personnalisation ultérieure.
-- [ ] **Hors périmètre du renommage — à effectuer par le propriétaire avec un compte confirmé :** vérifier le retour de connexion et l’accès aux Échos après confirmation.
+- [x] **Décision du propriétaire — essai différé :** ne pas envoyer de nouvelle confirmation e-mail ni simuler son retour ; ce contrôle facultatif sera réalisé ultérieurement avec une adresse réellement confirmée.
 
 ## Correction visuelle du portail
 
@@ -137,7 +213,8 @@ Le propriétaire a confirmé que le test avec l’URL de prévisualisation redé
 - [x] Connecter l’inscription et la connexion aux comptes réels.
 - [x] Permettre aux membres connectés de publier et commenter des Échos.
 - [x] Recentrer l’accueil sur la présentation du club et l’accès aux Échos.
-- [ ] **Hors périmètre du renommage — à effectuer par un membre réel :** tester les flux complets d’authentification et de publication, sans créer de contenu fictif.
+- [x] Vérifier une session membre Google réelle et son accès à l’archive Échos, sans créer de contenu de démonstration.
+- [x] **Décision du propriétaire — essai différé :** ne pas publier d’Écho pendant cette migration ; une contribution authentique pourra être testée ultérieurement par un membre réel, sans contenu fictif.
 
 ### État de validation réel
 
@@ -153,7 +230,7 @@ Supabase confirme que l’adresse de test est validée et qu’une session membr
 
 ### Validation finale à effectuer
 
-- [ ] **Hors périmètre du renommage — à effectuer par le propriétaire dans sa session confirmée :** vérifier l’accès à `/echoes` sans écran invité après confirmation.
+- [x] Vérifier dans la session membre réelle du propriétaire que l’accès à `/echoes` n’affiche pas d’écran invité et ne crée aucune publication de test.
 
 ## Annonces et inscriptions via Instagram
 
@@ -197,3 +274,12 @@ La connexion actuelle utilise les bons matériaux mais les réduit à un seul fe
 ## Vérification en cours
 
 Le mot rituel `POIESIS` a été saisi dans les sept alvéoles et a bien ouvert la page d’accueil du club. Les vues desktop et mobile du portail ainsi que la mise en page de connexion ont été contrôlées visuellement. Le formulaire de connexion a aussi été soumis avec des données de démonstration non sensibles et a correctement ouvert l’accueil ; aucune authentification distante n’est simulée.
+
+- [x] Vérifier et consigner pour chaque motif d’équipe la page source exacte, le statut de réutilisation affiché et les réserves de licence avant le point de contrôle local.
+- [x] Contrôler visuellement la grille complète des huit cartes enrichies sur desktop et mobile après défilement, puis consigner explicitement le résultat dans real-asset-research.md.
+
+- [x] Rendre le test de connectivité Supabase explicitement opt-in pour que la suite locale reste déterministe lorsque le DNS du service externe est indisponible. Le contrôle de configuration reste local ; l’appel réseau est activé uniquement avec `RUN_EXTERNAL_INTEGRATION=1`.
+
+- [x] Adapter le proxy de stockage au type de paramètres Express 5, puis revalider les tests et les builds. Les wildcards SPA utilisent `/{*splat}` et le proxy `/manus-storage/*splat`; le serveur démarre et le smoke test visuel passe.
+
+- [ ] Ajouter Nael comme Website Creator dans la section équipe avec l’illustration fournie et les goûts confirmés depuis les visuels de profil, sans publier à l’extérieur.

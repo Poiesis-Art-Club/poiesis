@@ -1,0 +1,635 @@
+/* Poiesis visual system — interpreted from the club's Instagram posts: sky, paper, moss and coral. */
+:root {
+  --poiesis-sky: #269fda;
+  --poiesis-sky-deep: #267dc5;
+  --poiesis-sky-mist: #d4edf4;
+  --poiesis-moss: #718757;
+  --poiesis-moss-deep: #455f45;
+  --poiesis-blush: #eab8bd;
+  --poiesis-blush-deep: #c96f7e;
+  --poiesis-paper: #fff7e8;
+  --poiesis-paper-shadow: #ead8b9;
+  --poiesis-ink: #312142;
+}
+
+.site-nav,
+.site-footer {
+  background: linear-gradient(110deg, #211247 0%, #44318c 56%, #2a84bf 100%);
+}
+
+.site-nav::after {
+  background: linear-gradient(90deg, var(--poiesis-coral) 0 15%, var(--poiesis-blush) 36%, var(--poiesis-sky) 66%, var(--poiesis-moss) 100%);
+}
+
+.nav-link--active,
+.nav-link:hover,
+.nav-links > a.nav-link:last-of-type {
+  color: #ffd9bf;
+}
+
+.ink-button--vermilion,
+.member-submit {
+  background: linear-gradient(105deg, #bd3d4c, #f26046 58%, #ff9b71);
+}
+
+.great-hall::after {
+  background: linear-gradient(90deg, rgba(255, 247, 232, .96) 0%, rgba(255, 247, 232, .88) 49%, rgba(212, 237, 244, .59) 75%, rgba(38, 159, 218, .32));
+}
+
+.great-hall__paper--coral {
+  background: linear-gradient(135deg, #ec9eab, #df6e75);
+}
+
+.great-hall__paper--lilac {
+  background: linear-gradient(145deg, #5a54b9, #299fd7);
+}
+
+.home-signpost {
+  background: linear-gradient(104deg, var(--poiesis-moss-deep), var(--poiesis-moss) 45%, var(--poiesis-sky-deep));
+}
+
+.people-preview {
+  background: linear-gradient(128deg, #e89fa7 0%, #df7681 48%, #518ec2 100%);
+}
+
+.about-values {
+  background: linear-gradient(128deg, #2b326d 0%, #426fb1 57%, #63895a 155%);
+}
+
+.about-intro {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(99, 75, 54, .035) 0 1px, transparent 1px 7px),
+    linear-gradient(90deg, rgba(255, 247, 232, .97), rgba(255, 247, 232, .86));
+  background-size: auto;
+}
+
+.team-section {
+  position: relative;
+  isolation: isolate;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(99, 75, 54, .025) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(0deg, rgba(99, 75, 54, .02) 0 1px, transparent 1px 8px),
+    linear-gradient(118deg, rgba(255, 247, 232, .96), rgba(244, 226, 214, .86));
+  background-size: auto;
+}
+
+.team-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(42vw, 560px);
+  aspect-ratio: 1;
+  right: -12%;
+  top: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(38, 159, 218, .15), transparent 70%);
+}
+
+.team-section__heading h2 {
+  color: var(--poiesis-ink);
+}
+
+.team-grid {
+  gap: clamp(.85rem, 1.5vw, 1.25rem);
+}
+
+.team-card,
+.team-card--founder {
+  min-height: 432px;
+  isolation: isolate;
+  background: linear-gradient(140deg, #2d9dd3 0%, #6bc0e1 100%);
+  border: 1px solid rgba(49, 33, 66, .26);
+  outline: 0;
+  box-shadow: 6px 8px 0 rgba(49, 33, 66, .17);
+}
+
+.team-card:nth-child(3n + 2) {
+  background: linear-gradient(140deg, #4278b8 0%, #80cbe0 100%);
+}
+
+.team-card:nth-child(3n) {
+  background: linear-gradient(140deg, #6f8757 0%, #a6c386 100%);
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  opacity: .23;
+  background-image: radial-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, transparent 49%, rgba(255,255,255,.45) 50%, transparent 51%);
+  background-size: 17px 17px, 42px 42px;
+  pointer-events: none;
+}
+
+.team-card::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 55%;
+  height: 32%;
+  right: -16%;
+  top: 12%;
+  transform: rotate(42deg);
+  background: rgba(234, 184, 189, .66);
+  clip-path: polygon(5% 8%, 96% 0, 100% 89%, 11% 100%, 0 31%);
+}
+
+.team-card__portrait {
+  min-height: 245px;
+  z-index: 2;
+  border-bottom: 0;
+  background: linear-gradient(90deg, rgba(255, 247, 232, .31), rgba(255, 247, 232, .03));
+}
+
+.team-card__portrait::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0 48% 0 0;
+  background: linear-gradient(90deg, rgba(255,247,232,.84), rgba(255,247,232,.46)), repeating-linear-gradient(90deg, rgba(92,75,62,.22) 0 1px, transparent 1px 15px), repeating-linear-gradient(0deg, rgba(92,75,62,.18) 0 1px, transparent 1px 15px);
+  background-blend-mode: normal, multiply, multiply;
+}
+
+.team-card__portrait::after {
+  width: 132px;
+  top: 18px;
+  left: 31%;
+  border-color: rgba(255, 247, 232, .55);
+  box-shadow: 0 0 0 20px rgba(255, 247, 232, .06), 0 0 0 40px rgba(255, 247, 232, .04);
+}
+
+.team-card__portrait > span {
+  z-index: 4;
+  color: var(--poiesis-paper);
+  text-shadow: 0 1px 0 rgba(49, 33, 66, .42);
+}
+
+.team-card__motifs {
+  position: absolute;
+  z-index: 5;
+  top: .65rem;
+  right: .55rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .28rem;
+  max-width: 68%;
+}
+
+.team-card__motifs > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .22rem;
+  padding: .22rem .34rem;
+  color: #3d4e45;
+  border: 1px solid rgba(58, 71, 64, .31);
+  background: rgba(255, 249, 238, .78);
+  box-shadow: 1px 2px 0 rgba(49, 33, 66, .13);
+  font: 700 .48rem/1 "IM Fell English SC", Georgia, serif;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.team-card:nth-child(3n + 2) .team-card__motifs > span {
+  color: #364f6c;
+  border-color: rgba(54, 79, 108, .3);
+  background: rgba(240, 247, 248, .8);
+}
+
+.team-card:nth-child(3n) .team-card__motifs > span {
+  color: #49633d;
+  border-color: rgba(73, 99, 61, .31);
+  background: rgba(255, 247, 225, .8);
+}
+
+.team-card__portrait picture,
+.team-card__portrait img {
+  z-index: 3;
+  height: 262px;
+  max-width: 95%;
+}
+
+.team-card__body,
+.team-card--founder .team-card__body {
+  z-index: 4;
+  width: calc(100% - 24px);
+  min-height: 167px;
+  margin: -21px 12px 12px;
+  padding: 1rem 1rem .9rem;
+  color: #493c4c;
+  background: linear-gradient(135deg, #fff9ee, #f1dfc5);
+  clip-path: polygon(3% 3%, 98% 0, 100% 91%, 96% 100%, 4% 96%, 0 10%);
+  box-shadow: 3px 4px 0 rgba(50, 33, 53, .17);
+}
+
+.team-card__role {
+  color: #b43d4f;
+}
+
+.team-card h3 {
+  color: #35306e;
+  font-family: "IM Fell English", Georgia, serif;
+}
+
+.team-card__body > p:not(.team-card__role) {
+  color: #4f4a4e;
+  min-height: 0;
+}
+
+.about-manifesto {
+  max-width: 610px;
+  white-space: pre-line;
+  color: #4b3446;
+  font: 500 1.04rem/1.53 "Cormorant Garamond", serif;
+}
+
+.about-manifesto::first-line {
+  color: #2d193e;
+  font-size: clamp(1.42rem, 2.25vw, 1.85rem);
+  font-style: italic;
+}
+
+.team-card__tags {
+  margin-top: .6rem;
+}
+
+.team-card__tags span {
+  color: #466046;
+  border-color: rgba(69, 95, 69, .4);
+  background: rgba(221, 234, 191, .46);
+}
+
+.team-section__footer {
+  background: linear-gradient(105deg, #f7dbc8, #d2e4bc);
+  border-color: rgba(69, 95, 69, .32);
+}
+
+@media (max-width: 700px) {
+  .team-card,
+  .team-card--founder {
+    min-height: 365px;
+  }
+
+  .team-card__portrait {
+    min-height: 202px;
+  }
+
+  .team-card__portrait picture,
+  .team-card__portrait img {
+    height: 220px;
+  }
+
+  .team-card__motifs {
+    top: .55rem;
+    right: .45rem;
+    max-width: 65%;
+  }
+
+  .team-card__motifs > span {
+    padding: .19rem .28rem;
+    font-size: .43rem;
+  }
+
+  .team-card__body,
+  .team-card--founder .team-card__body {
+    min-height: 145px;
+    margin: -15px 10px 10px;
+    width: calc(100% - 20px);
+  }
+}
+
+/* Entry portal: owner-supplied historic paper and Gothic code frame, unedited. */
+.gate-page--portal {
+  background-color: #c9a77f;
+  background-repeat: repeat;
+  background-size: 560px auto;
+}
+
+.portal-paper-grain {
+  background: linear-gradient(90deg, rgba(95, 58, 34, .16), transparent 22% 78%, rgba(95, 58, 34, .16)), rgba(255, 241, 215, .1);
+}
+
+.portal-centre .portal-title {
+  width: min(480px, 78vw);
+  margin: .25rem auto 1rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.portal-title > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 0 rgba(255, 236, 194, .52)) drop-shadow(0 5px 6px rgba(59, 31, 17, .24));
+}
+
+.draw-invitation {
+  border: 0;
+  margin-top: 1.7rem;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: linear-gradient(100deg, var(--poiesis-coral-deep), var(--poiesis-coral) 58%, #ff7858);
+  color: var(--poiesis-ivory);
+  box-shadow: 5px 6px 0 rgba(22, 13, 66, .3);
+  text-transform: uppercase;
+  font: 400 .68rem/1 "IM Fell English SC", Georgia, serif;
+  letter-spacing: .13em;
+  transition: transform .16s cubic-bezier(.23, 1, .32, 1), filter .16s;
+}
+
+.draw-invitation:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  filter: saturate(1.08);
+}
+
+.draw-invitation:active {
+  transform: scale(.97);
+}
+
+.rune-frame {
+  width: min(680px, 96vw);
+  min-height: 176px;
+  margin: .1rem auto -.2rem;
+  padding: 0;
+}
+
+.rune-row {
+  position: relative;
+  z-index: 2;
+  inset: auto;
+  transform: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(.05rem, .65vw, .42rem);
+}
+
+.rune-slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 2 / 3;
+  min-width: 0;
+}
+
+.rune-slot__frame {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 7px 6px rgba(55, 30, 18, .38));
+}
+
+.rune-input {
+  position: relative;
+  z-index: 2;
+  width: 48%;
+  height: 27%;
+  min-width: 0;
+  padding: 0;
+  color: #3a2214;
+  border: 0;
+  border-bottom: 1px solid rgba(91, 53, 25, .6);
+  border-radius: 0;
+  background: rgba(255, 244, 215, .14);
+  box-shadow: none;
+  font: 700 clamp(1rem, 2.45vw, 1.6rem)/1 "Cinzel Decorative", Georgia, serif;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 236, 191, .75);
+}
+
+.rune-input:focus {
+  outline: 1px solid rgba(120, 84, 30, .76);
+  outline-offset: 2px;
+  border-bottom-color: #8e662c;
+  box-shadow: 0 1px 0 rgba(120, 84, 30, .36);
+}
+
+@media (max-width: 600px) {
+  .gate-page--portal {
+    background-size: 430px auto;
+  }
+
+  .rune-frame {
+    min-height: 116px;
+    width: min(96vw, 510px);
+    margin: .1rem auto 0;
+  }
+
+  .portal-centre .portal-title {
+    width: min(386px, 86vw);
+    margin: .2rem auto .75rem;
+  }
+
+  .rune-input {
+    font-size: clamp(.72rem, 4vw, 1rem);
+  }
+}
+
+/* Compact one-screen entry composition: the code remains readable without
+   pushing the two threshold actions beneath the viewport. */
+.gate-page--portal {
+  place-items: center;
+  padding: 2.5rem 1rem 4.7rem;
+  background-color: #cfaa7d;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: normal, multiply;
+}
+
+.portal-centre {
+  width: min(540px, 88vw);
+  padding: .2rem 1rem .45rem;
+}
+
+.portal-centre .portal-title {
+  width: min(340px, 58vw);
+  margin: .05rem auto .56rem;
+}
+
+.portal-emblem-wrap,
+.portal-emblem {
+  height: clamp(92px, 11vw, 124px) !important;
+}
+
+.portal-emblem-wrap {
+  margin: 0 auto -.08rem;
+}
+
+.portal-instruction {
+  margin: .06rem auto .22rem;
+  font-size: 1.03rem;
+}
+
+.rune-frame {
+  width: min(500px, 79vw);
+  min-height: 90px;
+  margin: 0 auto -.08rem;
+}
+
+.portal-notice {
+  min-height: .95rem;
+  margin: .08rem auto 0;
+  font-size: .66rem;
+}
+
+.portal-enter {
+  padding: .25rem .55rem;
+}
+
+.portal-actions {
+  bottom: .45rem;
+  gap: clamp(2.2rem, 7vw, 4.2rem);
+}
+
+.portal-actions--inline {
+  position: static;
+  width: max-content;
+  max-width: 100%;
+  margin: .22rem auto 0;
+  transform: none;
+  gap: clamp(1.7rem, 5vw, 2.9rem);
+}
+
+.portal-actions--inline .portal-seal-action--hint {
+  left: 0;
+}
+
+.portal-seal-action img {
+  width: 43px;
+  height: 43px;
+}
+
+.portal-seal-action {
+  font-size: .51rem;
+}
+
+@media (max-width: 600px) {
+  .gate-page--portal {
+    place-items: start center;
+    padding: 3.4rem .65rem 4.25rem;
+  }
+
+  .portal-centre {
+    width: min(100%, 430px);
+    padding: 0 .1rem;
+  }
+
+  .portal-centre .portal-title {
+    width: min(275px, 73vw);
+    margin: .02rem auto .42rem;
+  }
+
+  .portal-emblem-wrap,
+  .portal-emblem {
+    height: 83px !important;
+  }
+
+  .portal-instruction {
+    margin: .03rem auto .12rem;
+    font-size: .91rem;
+  }
+
+  .rune-frame {
+    width: min(94vw, 420px);
+    min-height: 72px;
+    margin: 0 auto -.05rem;
+  }
+
+  .portal-notice {
+    margin: .02rem auto 0;
+    font-size: .61rem;
+  }
+
+  .portal-seal-action img {
+    width: 39px;
+    height: 39px;
+  }
+
+  .portal-actions {
+    gap: 2.8rem;
+  }
+
+  .portal-actions--inline {
+    gap: 1.9rem;
+    margin-top: .12rem;
+  }
+}
+
+/* Real interest vignettes: small editorial cut-outs, kept lightweight and secondary to each portrait. */
+.team-card__body {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px;
+  column-gap: .65rem;
+  align-items: start;
+}
+
+.team-card__artifact {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  width: 76px;
+  height: 58px;
+  overflow: hidden;
+  align-self: start;
+  padding: 3px;
+  transform: rotate(2deg);
+  background: rgba(255, 247, 232, .94);
+  border: 1px solid rgba(80, 57, 44, .38);
+  box-shadow: 2px 3px 0 rgba(49, 33, 66, .15);
+}
+
+.team-card:nth-child(even) .team-card__artifact {
+  transform: rotate(-3deg);
+  background: rgba(225, 240, 239, .92);
+}
+
+.team-card__artifact img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(.22) saturate(.78) contrast(.96);
+  mix-blend-mode: multiply;
+}
+
+.team-card__body > .team-card__role,
+.team-card__body > h3,
+.team-card__body > p:not(.team-card__role) {
+  grid-column: 1;
+}
+
+.team-card__body > .team-card__tags {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  .team-card__body {
+    grid-template-columns: minmax(0, 1fr) 64px;
+    column-gap: .45rem;
+  }
+
+  .team-card__artifact {
+    width: 64px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card__artifact,
+  .team-card:nth-child(even) .team-card__artifact {
+    transform: none;
+  }
+}
+
+/* The real vignette is decorative; the documented motif labels remain the accessible source of meaning. */
+.team-card__artifact img[alt] {
+  pointer-events: none;
+}

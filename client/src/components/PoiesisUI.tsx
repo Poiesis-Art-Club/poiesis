@@ -3,23 +3,26 @@
  * vermeil de sceau et gestes d’atelier. Chaque élément doit renforcer ce rituel de création.
  */
 import { Link, useLocation } from "wouter";
-import { Menu, Moon, Sparkles, Sun, X } from "lucide-react";
+import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { useTheme } from "@/contexts/ThemeContext";
 
 const assetOrigin = import.meta.env.VITE_ASSET_ORIGIN?.replace(/\/$/, "") || "https://poiesis-assets.netlify.app";
 const asset = (path: string) => `${assetOrigin}${path}`;
+const emptyDecorativeAsset = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
 export const ASSETS = {
   hero: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
+  romanDeLaRose: "/manus-storage/poiesis-roman-de-la-rose-cc0_ccf38295.jpg",
   seal: asset("/manus-storage/poiesis-seal-sculpture_5d2e74bf.png"),
   gallery: asset("/manus-storage/poiesis-gallery-vision_137feff4.jpg"),
   workshop: asset("/manus-storage/poiesis-workshop-stilllife_56216ad7.jpg"),
   mark: asset("/manus-storage/poiesis-mark_4fee9962.png"),
   portal: asset("/manus-storage/ambleme-alpha_75fb67b3.png"),
-  archways: asset("/manus-storage/Archways-alpha_c73509cb.png"),
-  parchment: asset("/manus-storage/Background_403b37be.png"),
-  birdvine: asset("/manus-storage/birdvine-alpha_24daebf6.png"),
+  // The decorative WebPs were never added to the durable asset host. Keep the
+  // layout stable without making 404 requests until an approved asset release.
+  archways: emptyDecorativeAsset,
+  parchment: asset("/manus-storage/poiesis-hero-manuscript_8948e97e.jpg"),
+  birdvine: emptyDecorativeAsset,
   hintSeal: asset("/manus-storage/hintseal-alpha_f05d7ab0.png"),
   numberPad: asset("/manus-storage/numberspad-alpha_379c0c80.png"),
   owl: asset("/manus-storage/owl-alpha_86ebde45.png"),
@@ -30,10 +33,10 @@ export const ASSETS = {
 export const INSTAGRAM_URL = "https://www.instagram.com/poiesis_art_club/?hl=fr";
 
 const navigation = [
-  ["/about", "The Houses"],
+  ["/about", "Get to know us"],
   ["/create", "Studios"],
   ["/echoes", "Echoes"],
-  ["/join", "Join"],
+  ["/join", "Join us"],
 ];
 
 export function Mark({ small = false }: { small?: boolean }) {
@@ -42,6 +45,13 @@ export function Mark({ small = false }: { small?: boolean }) {
       className={small ? "brand-mark brand-mark--small" : "brand-mark"}
       src={ASSETS.officialLogo}
       alt="Poiesis Art Club logo"
+      decoding="async"
+      onError={(event) => {
+        const image = event.currentTarget;
+        if (image.dataset.fallbackApplied) return;
+        image.dataset.fallbackApplied = "true";
+        image.src = ASSETS.mark;
+      }}
     />
   );
 }
@@ -68,7 +78,7 @@ export function Seal3D({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       <span className="seal-3d__halo" />
-      <img src={ASSETS.seal} alt="" />
+      <img src={ASSETS.seal} alt="" decoding="async" />
     </div>
   );
 }
@@ -127,7 +137,6 @@ export function ManuscriptCard({
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
-  const { theme, toggleTheme } = useTheme();
   useEffect(() => setOpen(false), [location]);
   return (
     <div className="site-shell">
@@ -144,10 +153,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           <Link href="/night-gallery" className="nav-link nav-link--night">After dark</Link>
         </nav>
         <div className="nav-tools">
-          <button className="torch-control" onClick={toggleTheme} aria-label="Toggle night setting" title="Change the light">
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-          <button className="menu-control" onClick={() => setOpen(!open)} aria-label="Open navigation">
+          <button className="menu-control" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"}>
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>

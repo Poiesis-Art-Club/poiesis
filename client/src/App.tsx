@@ -51,5 +51,5 @@ function StaticBuildConfigurationNotice() {
 }
 
 export default function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark" switchable><TooltipProvider><Toaster /><Router /><StaticBuildConfigurationNotice /></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark" switchable={false}><TooltipProvider><Toaster /><Router /><StaticBuildConfigurationNotice /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
