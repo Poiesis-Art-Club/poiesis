@@ -156,7 +156,10 @@
 }
 
 .team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: clamp(.85rem, 1.5vw, 1.25rem);
+  width: 100%;
 }
 
 .team-card,
@@ -423,10 +426,12 @@
     gap: 1rem;
   }
 
-  /* Single column on portrait mobile */
+  /* Explicit grid activation & 1-column layout for portrait mobile */
   .team-page .team-grid {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
+    width: 100%;
   }
 
   .team-card,
