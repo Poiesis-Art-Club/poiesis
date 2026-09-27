@@ -16,6 +16,7 @@ import {
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import { memberEmailConfirmationRedirect, memberGoogleAuthOptions } from "@/lib/memberAuth";
 import { ASSETS } from "@/components/PoiesisUI";
+import { TurnstileCaptcha } from "@/components/TurnstileCaptcha";
 
 type Mode = "sign-in" | "sign-up";
 
@@ -36,7 +37,10 @@ export default function Login() {
   const [error, setError] = useState("");
   const [signedIn, setSignedIn] = useState(false);
   const [newPassword, setNewPassword] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaReset, setCaptchaReset] = useState(0);
   const appBase = import.meta.env.BASE_URL;
+  const turnstileSitekey = import.meta.env.VITE_TURNSTILE_SITE_KEY || "";
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSignedIn(Boolean(data.session)));
@@ -59,18 +63,22 @@ export default function Login() {
       setError(authUnavailableMessage);
       return;
     }
+    if (turnstileSitekey && !captchaToken) {
+      setError("Complete the security check before continuing.");
+      return;
+    }
 
     setBusy(true);
     try {
       if (mode === "sign-in") {
-        const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
+        const { error: authError } = await supabase.auth.signInWithPassword({ email, password, options: { captchaToken: captchaToken || undefined } });
         if (authError) setError(authFailureMessage(authError));
         else setMessage("Your member session is open. You can now enter Echoes.");
       } else {
         const { data, error: authError } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: memberEmailConfirmationRedirect(window.location.origin, appBase) },
+          options: { emailRedirectTo: memberEmailConfirmationRedirect(window.location.origin, appBase), captchaToken: captchaToken || undefined },
         });
         if (authError) setError(authFailureMessage(authError));
         else if (data.session) setMessage("Your member session is open. Welcome to Poiesis.");
@@ -78,8 +86,11 @@ export default function Login() {
       }
     } catch (authError) {
       setError(authFailureMessage(authError));
+    } finally {
+      setCaptchaToken("");
+      setCaptchaReset((value) => value + 1);
+      setBusy(false);
     }
-    setBusy(false);
   };
 
   const signInWithGoogle = async () => {
@@ -198,6 +209,7 @@ export default function Login() {
                     <input value={confirmation} onChange={(event) => setConfirmation(event.target.value)} required type="password" minLength={8} placeholder="Repeat your password" autoComplete="new-password" />
                   </label>
                 )}
+                {turnstileSitekey && <TurnstileCaptcha key={captchaReset} sitekey={turnstileSitekey} onToken={setCaptchaToken} />}
                 <button className="member-submit" type="submit" disabled={busy}>
                   {busy ? "Opening the ledger…" : mode === "sign-in" ? <>Sign in <LogIn size={16} /></> : <>Create member account <UserPlus size={16} /></>}
                 </button>
