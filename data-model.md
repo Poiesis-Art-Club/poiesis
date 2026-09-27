@@ -2,19 +2,20 @@
 
 ## Principes
 
-Poiesis est une landing page de club. Les annonces, les dates et les inscriptions restent sur Instagram. La base de données sert exclusivement aux comptes membres et aux Échos publiés par les membres.
+Poiesis uses Supabase Auth for member accounts and a private Studio feed. Announcements, dates and event registrations remain on Instagram.
 
 | Entité | Rôle | Données principales |
 |---|---|---|
 | `users` | Compte d’authentification géré par le système membre | ID, email, identité de session |
-| `profiles` | Présentation publique facultative du membre | ID utilisateur, nom d’affichage, bio courte, pratique(s), date de création |
-| `echoes` | Publication d’un travail ou d’une proposition | ID, auteur, titre, pratique, description, lien externe facultatif, statut, dates |
-| `echo_comments` | Réponse constructive à un Écho | ID, Écho, auteur, contenu, date de création |
+| `profiles` | Member name shown beside shared work | Auth user ID, display name, optional bio and practices |
+| `echoes` | Artwork post or creative prompt | ID, author, kind (`artwork` or `prompt`), title, practice, description, optional external URL and private media path/type, creation date |
+| `echo_comments` | Comment on an artwork or prompt | ID, Echo ID, author, content and creation date |
+| `echo-media` (Storage) | Private image and video attachments | Authenticated member uploads, limited to 50 MB and image/video formats |
 
 ## Règles d’accès
 
-Les Échos publiés sont visibles par les membres connectés. Seul l’auteur peut modifier ou supprimer son Écho ; seul l’auteur d’un commentaire peut modifier ou supprimer son commentaire. Les visiteurs voient la landing page et sont invités à créer un compte pour accéder à l’espace Échos.
+Posts, comments and media are available only to authenticated members. Members publish as themselves. Only the author can edit or remove their post or remove their comment/media. The feed creates short-lived signed media links for display.
 
 ## États éditoriaux
 
-Les publications sont créées comme `published`. Un futur rôle d’administration pourra ajouter une modération, mais aucune publication fictive ne sera créée pour présenter l’interface.
+Artwork and prompt posts share the same feed, and every post has its own comment thread. The interface does not insert sample contributions.

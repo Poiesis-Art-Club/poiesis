@@ -33,8 +33,7 @@ export const INSTAGRAM_URL = "https://www.instagram.com/poiesis_art_club/?hl=fr"
 const navigation = [
   ["/about", "Get to know us"],
   ["/team", "Meet the team"],
-  ["/create", "Studios"],
-  ["/echoes", "Echoes"],
+  ["/echoes", "Studio"],
   ["/join", "Join us"],
 ];
 

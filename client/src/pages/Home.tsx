@@ -1,12 +1,11 @@
 /** Public-facing orientation page: make Poiesis legible before inviting people further in. */
-import { ArrowRight, Compass, HeartHandshake, Images, Lightbulb } from "lucide-react";
+import { ArrowRight, Compass, HeartHandshake, Images } from "lucide-react";
 import { ASSETS, InkButton, INSTAGRAM_URL, SiteShell } from "@/components/PoiesisUI";
 
 const pathways = [
   { number: "01", icon: Compass, title: "Discover the house", text: "Understand what Poiesis is, what it values and the people who shape it.", href: "/about", action: "Get to know us" },
-  { number: "02", icon: Lightbulb, title: "Make something", text: "Use Studios for practical creative invitations and cross-disciplinary ideas.", href: "/create", action: "Enter Studios" },
-  { number: "03", icon: Images, title: "Share an Echo", text: "Members can bring a work, a question or a useful reference into the private archive.", href: "/echoes", action: "Open Echoes" },
-  { number: "04", icon: HeartHandshake, title: "Take part", text: "Attend, propose a project or volunteer with the people keeping the house open.", href: "/join", action: "Join the house" },
+  { number: "02", icon: Images, title: "Visit the Studio", text: "Browse member artworks and Echo prompts, share your work, and respond to other artists.", href: "/echoes", action: "Browse the Studio" },
+  { number: "03", icon: HeartHandshake, title: "Take part", text: "Attend, propose a project or volunteer with the people keeping the house open.", href: "/join", action: "Join the house" },
 ];
 
 export default function Home() {
@@ -39,6 +38,6 @@ export default function Home() {
         </article>)}
       </div>
     </section>
-    <section className="home-signpost"><p>Sessions, open calls and volunteer needs are shared on Instagram.</p><div><InkButton href={INSTAGRAM_URL}>See what is on</InkButton><a href="/echoes">Member archive <ArrowRight size={14}/></a></div></section>
+    <section className="home-signpost"><p>Sessions, open calls and volunteer needs are shared on Instagram.</p><div><InkButton href={INSTAGRAM_URL}>See what is on</InkButton><a href="/echoes">Visit the Studio <ArrowRight size={14}/></a></div></section>
   </SiteShell>;
 }

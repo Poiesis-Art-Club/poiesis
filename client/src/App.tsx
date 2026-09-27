@@ -8,13 +8,11 @@ import Echoes from "@/pages/Echoes";
 import EmailConfirmed from "@/pages/EmailConfirmed";
 import Gate from "@/pages/Gate";
 import Home from "@/pages/Home";
-import Intercept from "@/pages/Intercept";
 import Join from "@/pages/Join";
 import Login from "@/pages/Login";
 import NightGallery from "@/pages/NightGallery";
 import NotFound from "@/pages/NotFound";
 import { Privacy, Terms } from "@/pages/Policies";
-import SubmitEcho from "@/pages/SubmitEcho";
 import Team from "@/pages/Team";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -34,8 +32,6 @@ function Router() {
     <Route path="/email-confirmed" component={EmailConfirmed} />
     <Route path="/privacy" component={Privacy} />
     <Route path="/terms" component={Terms} />
-    <Route path="/create/intercept" component={Intercept} />
-    <Route path="/create/submit" component={SubmitEcho} />
     <Route path="/night-gallery" component={NightGallery} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
