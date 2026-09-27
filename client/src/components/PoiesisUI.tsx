@@ -34,6 +34,7 @@ const navigation = [
   ["/about", "Get to know us"],
   ["/team", "Meet the team"],
   ["/echoes", "Studio"],
+  ["/gallery", "Art gallery"],
   ["/join", "Join us"],
 ];
 

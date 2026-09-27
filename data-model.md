@@ -8,7 +8,7 @@ Poiesis uses Supabase Auth for member accounts and a private Studio feed. Announ
 |---|---|---|
 | `users` | Compte d’authentification géré par le système membre | ID, email, identité de session |
 | `profiles` | Member name shown beside shared work | Auth user ID, display name, optional bio and practices |
-| `echoes` | Artwork post or creative prompt | ID, author, kind (`artwork` or `prompt`), title, practice, description, optional external URL and private media path/type, creation date |
+| `echoes` | Artwork post or creative prompt | ID, author, kind (`artwork` or `prompt`), optional prompt being answered, title, practice, description, optional external URL and private media path/type, creation date |
 | `echo_comments` | Comment on an artwork or prompt | ID, Echo ID, author, content and creation date |
 | `echo-media` (Storage) | Private image and video attachments | Authenticated member uploads, limited to 50 MB and image/video formats |
 
@@ -18,4 +18,4 @@ Posts, comments and media are available only to authenticated members. Members p
 
 ## États éditoriaux
 
-Artwork and prompt posts share the same feed, and every post has its own comment thread. The interface does not insert sample contributions.
+Artwork and prompt posts share the Studio feed. Artwork can optionally link to an Echo prompt, and the Art Gallery collects every published artwork, including Echo responses. Every post has its own comment thread. Existing Echo rows are preserved and treated as prompts during the schema upgrade. The interface does not insert sample contributions.

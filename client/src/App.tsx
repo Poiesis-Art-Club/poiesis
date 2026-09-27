@@ -29,6 +29,7 @@ function Router() {
     <Route path="/join" component={Join} />
     <Route path="/create" component={Create} />
     <Route path="/echoes" component={Echoes} />
+    <Route path="/gallery" component={Echoes} />
     <Route path="/email-confirmed" component={EmailConfirmed} />
     <Route path="/privacy" component={Privacy} />
     <Route path="/terms" component={Terms} />
